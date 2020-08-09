@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>python 直接复制、浅拷贝和深拷贝 - bjjdkp的博客</title>
+  <title>dfdf new website - bjjdkp的博客</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="bjjdkp" /><meta name="description" content="总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="bjjdkp" /><meta name="description" content="spf13-vim is a cross platform distribution of vim plugins and resources for Vim." /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -39,14 +39,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="python 直接复制、浅拷贝和深拷贝" />
-<meta property="og:description" content="总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷" />
+<meta property="og:title" content="dfdf new website" />
+<meta property="og:description" content="spf13-vim is a cross platform distribution of vim plugins and resources for Vim." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/spf13-vim-3-0-release-and-new-website/" />
 <meta property="article:published_time" content="2011-04-06T00:00:00+00:00" />
 <meta property="article:modified_time" content="2011-04-06T00:00:00+00:00" />
-<meta itemprop="name" content="python 直接复制、浅拷贝和深拷贝">
-<meta itemprop="description" content="总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷">
+<meta itemprop="name" content="dfdf new website">
+<meta itemprop="description" content="spf13-vim is a cross platform distribution of vim plugins and resources for Vim.">
 <meta itemprop="datePublished" content="2011-04-06T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2011-04-06T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1300">
@@ -55,8 +55,8 @@
 
 <meta itemprop="keywords" content=".vimrc,plugins,spf13-vim,vim," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="python 直接复制、浅拷贝和深拷贝"/>
-<meta name="twitter:description" content="总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷"/>
+<meta name="twitter:title" content="dfdf new website"/>
+<meta name="twitter:description" content="spf13-vim is a cross platform distribution of vim plugins and resources for Vim."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -119,7 +119,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">python 直接复制、浅拷贝和深拷贝</h1>
+      <h1 class="post-title">dfdf new website</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2011-04-06 </span>
@@ -141,6 +141,7 @@
         <li>
           <ul>
             <li><a href="#可变对象与不可变对象">可变对象与不可变对象</a></li>
+            <li><a href="#赋值">赋值</a></li>
             <li><a href="#浅拷贝">浅拷贝</a></li>
             <li><a href="#深拷贝">深拷贝</a></li>
           </ul>
@@ -166,7 +167,7 @@
 <li>不可变对象：字符串、数值、元组</li>
 </ul>
 <p>为了优化内存的使用，python中无论是浅拷贝还是深拷贝，对不可变对象都是无效的。拷贝之后依旧指向原来的内存地址。</p>
-<h5 id="赋值">赋值</h5>
+<h4 id="赋值">赋值</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt"> 1
