@@ -6,10 +6,46 @@
     <description>Recent content on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>服务器自建Bitwarden密码管理器</title>
+      <link>http://localhost:1313/post/self-host-bitwarden/</link>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/self-host-bitwarden/</guid>
+      <description>一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其</description>
+    </item>
+    
+    <item>
+      <title>Scrapy 设置中 CONCURRENT_REQUESTS 及 DOWNLOAD_DELAY 等几个相关参数的作用</title>
+      <link>http://localhost:1313/post/concurrent_requests-and-download_delay/</link>
+      <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/concurrent_requests-and-download_delay/</guid>
+      <description>Scrapy设置中，关于并发及下载延迟是几个比较关键的参数，既影响着请求效率，同时关乎对方服务器的压力大小。 相关的几个参数： CONCURRENT_REQUESTS 默认值：16 S</description>
+    </item>
+    
+    <item>
+      <title>反编译虎扑 App 破解请求参数 sign</title>
+      <link>http://localhost:1313/post/get-hupu-app-sign-params/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/get-hupu-app-sign-params/</guid>
+      <description>最近想爬虎扑的全量用户，初步打算从 App 端入手，不出意外，在请求中依旧碰到了加密参数。 请求参数 ios 端和 android 端的请求参数大同小异，这里以 android 端的请求参数</description>
+    </item>
+    
+    <item>
+      <title>在 macOS 上运行 docker GUI 程序</title>
+      <link>http://localhost:1313/post/running-guis-with-docker-on-macos/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/running-guis-with-docker-on-macos/</guid>
+      <description>其实这件事的源头在于之前一直想白嫖 Studio 3T，但网上的破解方式基本都是 Windows 平台的，无意间看到了这种解决方案。 用 docker 安装 Linux 版的 Studio 3T，同样是有30天试</description>
+    </item>
     
     <item>
       <title>高匿代理和透明代理的区别</title>

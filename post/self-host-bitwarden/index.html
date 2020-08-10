@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>服务器自建Bitwarden密码管理器 - bjjdkp的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="bjjdkp" /><meta name="description" content="一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/self-host-bitwarden/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="服务器自建Bitwarden密码管理器" />
+<meta property="og:description" content="一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/self-host-bitwarden/" />
+<meta property="article:published_time" content="2020-04-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-07T00:00:00+00:00" />
+<meta itemprop="name" content="服务器自建Bitwarden密码管理器">
+<meta itemprop="description" content="一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其">
+<meta itemprop="datePublished" content="2020-04-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-04-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1719">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="服务器自建Bitwarden密码管理器"/>
+<meta name="twitter:description" content="一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Bjjdkp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Bjjdkp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">服务器自建Bitwarden密码管理器</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-04-07 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%85%B6%E4%BB%96/"> 其他 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#在服务器安装dockerhttpsdocsdockercomengineinstall-和docker-composehttpsdocsdockercomcomposeinstall">在服务器安装<a href="https://docs.docker.com/engine/install/">docker</a> 和<a href="https://docs.docker.com/compose/install">docker-compose</a></a></li>
+    <li><a href="#使用nginx配置反向代理">使用nginx配置反向代理</a></li>
+    <li><a href="#docker-compose-配置">docker-compose 配置</a></li>
+    <li><a href="#客户端">客户端</a></li>
+    <li><a href="#数据备份">数据备份</a>
+      <ul>
+        <li><a href="#数据备份至github私有仓库">数据备份至github私有仓库</a></li>
+        <li><a href="#数据备份至另一台服务器">数据备份至另一台服务器</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据恢复">数据恢复</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其原因，可能是对网站安全人员的盲目自信，也可能是认为自己的数据价值不高。</p>
+<p>即便大厂的数据泄露事件已经屡见不鲜，自己也一直很侥幸没有成为那个受害者，当然也可能已经是个小透明，然而自己却浑然不知。</p>
+<p>其实这就像车祸等意外，没发生在自己身上时，俨然是一个抱着侥幸心理的旁观者心态。但谁也不能保证下一个是不是自己，所以只能在自己最大的努力范围下，尽人事听天命。</p>
+<p><a href="https://bitwarden.com">Bitwarden</a>是一个免费的<a href="https://github.com/bitwarden">开源</a>密码管理服务，支持 Windows, macOS 和 Linux 等主流操作系统，浏览器插件也基本涵盖了常用的主流浏览器，同时支持ios和安卓等移动设备。如果不想自建的话，Bitwarden 官方提供了免费的密码托管服务，只是激活一些附加功能需要升级到 <code>$10.00/年</code> 的高级会员。</p>
+<p><a href="https://bitwarden.com/">Bitwarden官网</a>提供了基于Docker的自建教程，不过对服务器配置要求比较高：</p>
+<ul>
+<li>Processor: x64, 1.4GHz or faster</li>
+<li>Memory: 2GB of RAM or more</li>
+<li>Storage: 10GB or more</li>
+<li>Docker: Engine 1.8+ and Compose 1.17.1+</li>
+</ul>
+<p>github上有很多开源的Bitwarden 服务器实现，目前最热门的当属<a href="https://github.com/dani-garcia/bitwarden_rs">bitwarden_rs</a>. 很大程度上降低了对服务器配置的要求，同时一些官方后台中需要付费使用的功能，比如<code>TOTP</code>认证的自动生成，在这里也可以免费使用。</p>
+<p><a data-fancybox="gallery" href="/images/202004/self-host-bitwarden/WX20200413-103930@2x.png"><img src="/images/202004/self-host-bitwarden/WX20200413-103930@2x.png"></a></p>
+<h2 id="在服务器安装dockerhttpsdocsdockercomengineinstall-和docker-composehttpsdocsdockercomcomposeinstall">在服务器安装<a href="https://docs.docker.com/engine/install/">docker</a> 和<a href="https://docs.docker.com/compose/install">docker-compose</a></h2>
+<p>参考docker官网的教程安装<a href="https://docs.docker.com/engine/install/">docker</a> 和<a href="https://docs.docker.com/compose/install">docker-compose</a>。</p>
+<h2 id="使用nginx配置反向代理">使用nginx配置反向代理</h2>
+<p>假设使用域名<code>xxx.com</code>用来访问Bitwardend的后台管理界面，同时指定<code>127.0.0.1:16857</code>映射到docker中的bitwarden服务。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">xxx.com</span><span class="p">;</span>
+    <span class="kn">rewrite</span> <span class="s">^(.*)</span> <span class="s">https://xxx.com</span><span class="nv">$request_uri</span> <span class="s">permanent</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">charset</span> <span class="s">utf-8</span><span class="p">;</span>
+    <span class="kn">listen</span> <span class="mi">443</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">xxx.com</span><span class="p">;</span>
+        <span class="kn">ssl</span> <span class="no">on</span><span class="p">;</span>
+        <span class="kn">ssl_certificate</span> <span class="s">/path_to_cer/fullchain.cer</span><span class="p">;</span>
+        <span class="kn">ssl_certificate_key</span> <span class="s">/path_to_key/xxx.com.key</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+	<span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:16857</span><span class="p">;</span>
+	<span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$http_host</span><span class="p">;</span>
+	<span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>更新nginx配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sudo service nginx reload
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="docker-compose-配置">docker-compose 配置</h2>
+<p>在用户主目录下新建 bitwarden 文件夹，并在文件夹中新建配置文件<code>docker-compose.yml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-yml" data-lang="yml"><span class="k">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="k">services</span><span class="p">:</span><span class="w">
+</span><span class="w"> </span><span class="k">bitwarden</span><span class="p">:</span><span class="w">
+</span><span class="w">  </span><span class="k">image</span><span class="p">:</span><span class="w"> </span>bitwardenrs/server<span class="w">
+</span><span class="w">  </span><span class="k">container_name</span><span class="p">:</span><span class="w"> </span>bitwarden<span class="w">
+</span><span class="w">  </span><span class="k">restart</span><span class="p">:</span><span class="w"> </span>always<span class="w">
+</span><span class="w">  </span><span class="k">volumes</span><span class="p">:</span><span class="w">
+</span><span class="w">      </span>- ./bw-data<span class="p">:</span>/data<span class="w">
+</span><span class="w">  </span><span class="k">ports</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- <span class="m">16857</span><span class="p">:</span><span class="m">80</span><span class="w">
+</span><span class="w">  </span><span class="k">environment</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span>- SIGNUPS_ALLOWED=<span class="kc">true</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div><p>启动服务：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">docker-compose up -d
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="客户端">客户端</h2>
+<p>部署完成后，访问后台管理界面<code>xxx.com</code>，注册账号。注册完毕可将<code>docker-compose.yml</code>中的<code>SIGNUPS_ALLOWED</code>设置为<code>false</code>，从而关闭用户注册功能。</p>
+<p><a data-fancybox="gallery" href="/images/202004/self-host-bitwarden/WX20200408-163150@2x.png"><img src="/images/202004/self-host-bitwarden/WX20200408-163150@2x.png"></a></p>
+<p>安装浏览器插件，以chrome为例，在chrome网上应用店安装<a href="https://chrome.google.com/webstore/detail/bitwarden-free-password-m/nngceckbapebfimnlniiiahkandclblb">Bitwarden - 免费密码管理器</a>插件。</p>
+<p>由于是自建环境，在插件登录前，需要更改设置：</p>
+<p>在<code>自我托管环境</code>&gt;<code>服务器URL</code>中填入bitwarden后台管理网址<code>xxx.com</code>，然后即可在插件中登录注册好的账号。</p>
+<p><a data-fancybox="gallery" href="/images/202004/self-host-bitwarden/WX20200408-165152@2x.png"><img src="/images/202004/self-host-bitwarden/WX20200408-165152@2x.png"></a></p>
+<p>除了浏览器插件外，还可以在安卓或ios的商店中下载移动端app。</p>
+<h2 id="数据备份">数据备份</h2>
+<p>对于密码这类重要数据，必须要做好备份，不然数据丢失的后果很严重。虽然很多网站可以找回密码，但假如要找回超过100个网站的密码，可能至少要耗时个1天的时间，而且你并不会记得都在哪些网站有过账号。即便不嫌麻烦，也并不是所有网站都能在网站上自助找回密码，比如各高校的edu邮箱。</p>
+<p>数据备份最好遵循<code>3-2-1 原则</code>，这样能最大限度的保证数据安全，所谓的<code>3-2-1 原则</code>，具体是指：</p>
+<ul>
+<li>3：保存3份完整文件，其中包括一份原件，加上两份拷贝；</li>
+<li>2：备份文件至少要保存在两种不同介质上；</li>
+<li>1：一份备份文件保存在异地。</li>
+</ul>
+<p>数据原件算一份，也就是说还需要考虑另外两处存放拷贝数据的合适介质。</p>
+<p>我的目前方案是，一份存在github私有仓库中，一份存到另一台服务器上。</p>
+<h3 id="数据备份至github私有仓库">数据备份至github私有仓库</h3>
+<p>在github上新建私有仓库<code>bitwarden-backup</code>，并拉取到服务器某一路径下。</p>
+<p>新建<code>bitwarden_backup.sh</code>文件：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /home/huangzy/backup/bitwarden-backup
+sqlite3 /home/huangzy/bitwarden/bw-data/db.sqlite3 <span class="s2">&#34;.backup &#39;/home/huangzy/backup/bitwarden-backup/bitwarden_backup.sqlite3&#39;&#34;</span>
+git add -A
+git commit -m <span class="s2">&#34;bitwarden daily backup&#34;</span>
+git push -u origin master
+</code></pre></td></tr></table>
+</div>
+</div><p>并创建Crontab定时任务，每天早晨8点备份：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="m">0</span> <span class="m">8</span> * * *  bash /home/huangzy/backup/bitwarden_backup.sh
+</code></pre></td></tr></table>
+</div>
+</div><p>默认<code>db.sqlite3</code>是属于root用户的，其他用户使用sqlite3命令备份时会遇到权限问题。可以更改<code>db.sqlite3</code>的所属，或者让root用户执行定时任务。</p>
+<h3 id="数据备份至另一台服务器">数据备份至另一台服务器</h3>
+<p>可以同样使用定时任务，将数据定期备份至另一台服务器上。</p>
+<h2 id="数据恢复">数据恢复</h2>
+<p>先停止bitwarden服务：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">docker-compose down
+</code></pre></td></tr></table>
+</div>
+</div><p>恢复数据：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">sqlite3 /home/huangzy/bitwarden/bw-data/db.sqlite3 <span class="s2">&#34;.restore &#39;/home/huangzy/backup/bitwarden-backup/bitwarden_backup.sqlite3&#39;&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">bjjdkp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-04-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/concurrent_requests-and-download_delay/">
+            <span class="next-text nav-default">Scrapy 设置中 CONCURRENT_REQUESTS 及 DOWNLOAD_DELAY 等几个相关参数的作用</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">bjjdkp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

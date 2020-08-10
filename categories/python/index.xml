@@ -6,10 +6,19 @@
     <description>Recent content in Python on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 10 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Scrapy 设置中 CONCURRENT_REQUESTS 及 DOWNLOAD_DELAY 等几个相关参数的作用</title>
+      <link>http://localhost:1313/post/concurrent_requests-and-download_delay/</link>
+      <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/concurrent_requests-and-download_delay/</guid>
+      <description>Scrapy设置中，关于并发及下载延迟是几个比较关键的参数，既影响着请求效率，同时关乎对方服务器的压力大小。 相关的几个参数： CONCURRENT_REQUESTS 默认值：16 S</description>
+    </item>
     
     <item>
       <title>使用 fabric 自动化部署项目</title>

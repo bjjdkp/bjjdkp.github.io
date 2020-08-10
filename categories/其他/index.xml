@@ -6,10 +6,28 @@
     <description>Recent content in 其他 on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Apr 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>服务器自建Bitwarden密码管理器</title>
+      <link>http://localhost:1313/post/self-host-bitwarden/</link>
+      <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/self-host-bitwarden/</guid>
+      <description>一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其</description>
+    </item>
+    
+    <item>
+      <title>在 macOS 上运行 docker GUI 程序</title>
+      <link>http://localhost:1313/post/running-guis-with-docker-on-macos/</link>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/running-guis-with-docker-on-macos/</guid>
+      <description>其实这件事的源头在于之前一直想白嫖 Studio 3T，但网上的破解方式基本都是 Windows 平台的，无意间看到了这种解决方案。 用 docker 安装 Linux 版的 Studio 3T，同样是有30天试</description>
+    </item>
     
     <item>
       <title>使用Chrome对网页长截图</title>
