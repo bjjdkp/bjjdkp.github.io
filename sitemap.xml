@@ -52,7 +52,14 @@
   
   <url>
     <loc>http://localhost:1313/categories/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2020-04-07T00:00:00+00:00</lastmod>
+    <lastmod>2020-06-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/create-an-english-id/</loc>
+    <lastmod>2020-06-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -102,6 +109,13 @@
   <url>
     <loc>http://localhost:1313/post/gn-and-tm-proxy/</loc>
     <lastmod>2019-06-01T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/proxy-pool-for-anonymity/</loc>
+    <lastmod>2019-05-27T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>构建代理池实现匿名访问的几种方式</title>
+      <link>http://localhost:1313/post/proxy-pool-for-anonymity/</link>
+      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/proxy-pool-for-anonymity/</guid>
+      <description>做爬虫基本永远绕不开代理池，大规模的数据爬取，需要代理池来隐匿自己的真实ip ，否则只能对爬取速度做出妥协。 抛砖引玉，本文粗略记录几种实现匿名</description>
+    </item>
+    
+    <item>
       <title>链家App反编译破解加密字段</title>
       <link>http://localhost:1313/post/anti-lianjia-app/</link>
       <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>

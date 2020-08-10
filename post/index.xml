@@ -30,6 +30,15 @@
     </item>
     
     <item>
+      <title>创建一个英文id</title>
+      <link>http://localhost:1313/post/create-an-english-id/</link>
+      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/create-an-english-id/</guid>
+      <description>因为喜欢安东尼，所以我一直使用的中文id是小铁瓜，不过仍旧一直想创建一个尽可能独一无二的英文id来使用。 为什么要用英文id，主要还是因为中文</description>
+    </item>
+    
+    <item>
       <title>服务器自建Bitwarden密码管理器</title>
       <link>http://localhost:1313/post/self-host-bitwarden/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
@@ -81,6 +90,15 @@
       
       <guid>http://localhost:1313/post/gn-and-tm-proxy/</guid>
       <description>每家代理ip网站几乎都会开放一些免费的代理ip，然而这些ip又会在网站上有高匿和透明等不同标识，这两种的区别在于服务器端能否识别客户端的真实</description>
+    </item>
+    
+    <item>
+      <title>构建代理池实现匿名访问的几种方式</title>
+      <link>http://localhost:1313/post/proxy-pool-for-anonymity/</link>
+      <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/proxy-pool-for-anonymity/</guid>
+      <description>做爬虫基本永远绕不开代理池，大规模的数据爬取，需要代理池来隐匿自己的真实ip ，否则只能对爬取速度做出妥协。 抛砖引玉，本文粗略记录几种实现匿名</description>
     </item>
     
     <item>
