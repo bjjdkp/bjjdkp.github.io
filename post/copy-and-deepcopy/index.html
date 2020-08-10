@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Python 直接赋值、浅拷贝和深拷贝 - bjjdkp的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="bjjdkp" /><meta name="description" content="总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/copy-and-deepcopy/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Python 直接赋值、浅拷贝和深拷贝" />
+<meta property="og:description" content="总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/copy-and-deepcopy/" />
+<meta property="article:published_time" content="2020-07-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-19T00:00:00+00:00" />
+<meta itemprop="name" content="Python 直接赋值、浅拷贝和深拷贝">
+<meta itemprop="description" content="总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷">
+<meta itemprop="datePublished" content="2020-07-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1300">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Python 直接赋值、浅拷贝和深拷贝"/>
+<meta name="twitter:description" content="总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Bjjdkp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Bjjdkp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Python 直接赋值、浅拷贝和深拷贝</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-07-19 </span>
+        <div class="post-category">
+            <a href="/categories/python/"> Python </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#可变对象与不可变对象">可变对象与不可变对象</a></li>
+    <li><a href="#赋值">赋值</a></li>
+    <li><a href="#浅拷贝">浅拷贝</a></li>
+    <li><a href="#深拷贝">深拷贝</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。</p>
+<p>先上结论：</p>
+<ul>
+<li>赋值：其实就是原对象多了一个引用。</li>
+<li>浅拷贝(copy)：只拷贝了最外层对象，内层对象还是之前的引用。</li>
+<li>深拷贝(deepcopy)：完全拷贝了外层和内层所有对象，可以理解为增加了一个副本。</li>
+</ul>
+<h2 id="可变对象与不可变对象">可变对象与不可变对象</h2>
+<p>Python使用对象模型来存储数据，构造任何类型的值都是一个对象。创建新对象后，变量并不存储对象的值，而是对象引用（内存地址）。所以python中赋值等操作传递的都是引用。</p>
+<ul>
+<li>可变对象：列表、字典</li>
+<li>不可变对象：字符串、数值、元组</li>
+</ul>
+<p>为了优化内存的使用，python中无论是浅拷贝还是深拷贝，对不可变对象都是无效的。拷贝之后依旧指向原来的内存地址。</p>
+<h2 id="赋值">赋值</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>  <span class="c1"># 赋值</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">y</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;--&#34;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;fff&#39;</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ggg&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">y</span><span class="p">])</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以上代码的输出为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]]</span>
+<span class="mi">4780872328</span>
+<span class="p">[</span><span class="mi">4545160840</span><span class="p">,</span> <span class="mi">4544919232</span><span class="p">,</span> <span class="mi">4780872200</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]]</span>
+<span class="mi">4780872328</span>
+<span class="p">[</span><span class="mi">4545160840</span><span class="p">,</span> <span class="mi">4544919232</span><span class="p">,</span> <span class="mi">4780872200</span><span class="p">]</span>
+<span class="o">----------------------------------------</span>
+<span class="p">[</span><span class="s1">&#39;fff&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;ggg&#39;</span><span class="p">]]</span>
+<span class="mi">4780872328</span>
+<span class="p">[</span><span class="mi">4545027632</span><span class="p">,</span> <span class="mi">4544919232</span><span class="p">,</span> <span class="mi">4780872200</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;fff&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;ggg&#39;</span><span class="p">]]</span>
+<span class="mi">4780872328</span>
+<span class="p">[</span><span class="mi">4545027632</span><span class="p">,</span> <span class="mi">4544919232</span><span class="p">,</span> <span class="mi">4780872200</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>赋值，就是原对象多了一个引用。</p>
+<p>赋值后，y和x指向同一个内存地址，并且内层对象的地址也都是相同的。</p>
+<p>由于x和y共用一个引用，所以对x的更改会体现在y上。</p>
+<p>图解：</p>
+<p><a data-fancybox="gallery" href="/images/202007/copy-and-deepcopy/赋值.png"><img src="/images/202007/copy-and-deepcopy/赋值.png"></a></p>
+<h2 id="浅拷贝">浅拷贝</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 浅拷贝</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">y</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;--&#34;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;fff&#39;</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ggg&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">y</span><span class="p">])</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以上代码的输出为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]]</span>
+<span class="mi">4624998472</span>
+<span class="p">[</span><span class="mi">4389308040</span><span class="p">,</span> <span class="mi">4389066432</span><span class="p">,</span> <span class="mi">4624936840</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]]</span>
+<span class="mi">4624999432</span>
+<span class="p">[</span><span class="mi">4389308040</span><span class="p">,</span> <span class="mi">4389066432</span><span class="p">,</span> <span class="mi">4624936840</span><span class="p">]</span>
+<span class="o">----------------------------------------</span>
+<span class="p">[</span><span class="s1">&#39;fff&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;ggg&#39;</span><span class="p">]]</span>
+<span class="mi">4624998472</span>
+<span class="p">[</span><span class="mi">4389174832</span><span class="p">,</span> <span class="mi">4389066432</span><span class="p">,</span> <span class="mi">4624936840</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;ggg&#39;</span><span class="p">]]</span>
+<span class="mi">4624999432</span>
+<span class="p">[</span><span class="mi">4389308040</span><span class="p">,</span> <span class="mi">4389066432</span><span class="p">,</span> <span class="mi">4624936840</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>浅拷贝，只拷贝了最外层对象，内层对象还是之前的引用。</p>
+<p>浅拷贝后，y和x指向同一个内存地址，并且内层对象的地址也都是相同的。</p>
+<p>更改x的最外层元素x[0]，x[0]指向了新的值，并且内存地址也和原来不同了；而y[0]并未产生改变，依旧指向原来的字符串&rsquo;a&rsquo;。</p>
+<p>向x[2]添加一个元素，是更改了列表的内层元素，列表的内存地址并未产生改变，</p>
+<p>y[2]依旧指向这个内存地址，所以x对列表的更改会在y上体现出来。</p>
+<p>图解：</p>
+<p><a data-fancybox="gallery" href="/images/202007/copy-and-deepcopy/浅拷贝.png"><img src="/images/202007/copy-and-deepcopy/浅拷贝.png"></a></p>
+<h2 id="深拷贝">深拷贝</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># 深拷贝</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">y</span><span class="p">])</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s2">&#34;--&#34;</span><span class="o">*</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;fff&#39;</span>
+<span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;ggg&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">x</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+<span class="k">print</span><span class="p">([</span><span class="nb">id</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="k">for</span> <span class="n">temp</span> <span class="ow">in</span> <span class="n">y</span><span class="p">])</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以上代码的输出为：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]]</span>
+<span class="mi">4636782856</span>
+<span class="p">[</span><span class="mi">4401088136</span><span class="p">,</span> <span class="mi">4400846528</span><span class="p">,</span> <span class="mi">4636782728</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]]</span>
+<span class="mi">4636783816</span>
+<span class="p">[</span><span class="mi">4401088136</span><span class="p">,</span> <span class="mi">4400846528</span><span class="p">,</span> <span class="mi">4636783688</span><span class="p">]</span>
+<span class="o">----------------------------------------</span>
+<span class="p">[</span><span class="s1">&#39;fff&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;ggg&#39;</span><span class="p">]]</span>
+<span class="mi">4636782856</span>
+<span class="p">[</span><span class="mi">4400954928</span><span class="p">,</span> <span class="mi">4400846528</span><span class="p">,</span> <span class="mi">4636782728</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]]</span>
+<span class="mi">4636783816</span>
+<span class="p">[</span><span class="mi">4401088136</span><span class="p">,</span> <span class="mi">4400846528</span><span class="p">,</span> <span class="mi">4636783688</span><span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>深拷贝，完全拷贝了原来的外层对象和内层对象，可以理解为增加了一个副本。</p>
+<p>深拷贝后，y指向的地址和x已经不一样了，可见程序申请了新的内存空间存储最外层的列表。</p>
+<p>关于列表内的元素，前两个字符串对象的地址并未改变。之前已经提到，深拷贝对不可变对象无效。第三个对象是列表，属于可变对象，所以y[3]的地址已经与x[3]不同。</p>
+<p>深拷贝可以理解为增加了一个副本，所以对x的更改不会体现到y上。</p>
+<p>更新x[0]的值，虽然原来x[0]和y[0]指向的是同一个地址，不过由于是深拷贝，y[0]不会改变，程序会申请新的内存空间存储x[0]的新值。</p>
+<p>x[2]和y[2]指向两个不同地址的列表，所以对x[2]的更改并不会作用到y[2]上。</p>
+<p>图示：</p>
+<p><a data-fancybox="gallery" href="/images/202007/copy-and-deepcopy/深拷贝.png"><img src="/images/202007/copy-and-deepcopy/深拷贝.png"></a></p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">bjjdkp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-07-19
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/process-of-getting-web-page/">
+            <span class="next-text nav-default">Web页面请求的历程</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">bjjdkp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>acme.sh申请泛域名（通配符）证书</title>
+      <link>http://localhost:1313/post/use-acme-getting-wildcard-certificate/</link>
+      <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/use-acme-getting-wildcard-certificate/</guid>
+      <description>acme.sh 实现了 acme 协议, 可以从 Let’s Encrypt 生成免费的证书。Let’s Encrypt自18年起宣布支持泛域名证书。 使用acme.sh生成泛域名证书，配</description>
+    </item>
+    
+    <item>
       <title>在 macOS 上运行 docker GUI 程序</title>
       <link>http://localhost:1313/post/running-guis-with-docker-on-macos/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>

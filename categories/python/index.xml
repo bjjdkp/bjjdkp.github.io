@@ -6,10 +6,19 @@
     <description>Recent content in Python on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 19 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/python/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python 直接赋值、浅拷贝和深拷贝</title>
+      <link>http://localhost:1313/post/copy-and-deepcopy/</link>
+      <pubDate>Sun, 19 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/copy-and-deepcopy/</guid>
+      <description>总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷</description>
+    </item>
     
     <item>
       <title>Scrapy 设置中 CONCURRENT_REQUESTS 及 DOWNLOAD_DELAY 等几个相关参数的作用</title>

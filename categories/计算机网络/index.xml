@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机网络 on bjjdkp的博客</title>
+    <link>http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/</link>
+    <description>Recent content in 计算机网络 on bjjdkp的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 24 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Web页面请求的历程</title>
+      <link>http://localhost:1313/post/process-of-getting-web-page/</link>
+      <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/process-of-getting-web-page/</guid>
+      <description>关于web页面请求的历程，这是一个老生常谈的话题了，在很多面经中都看到过类似的问题：“从输入URL到页面加载发生了什么”。最近看完了《计算机</description>
+    </item>
+    
+  </channel>
+</rss>

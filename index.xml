@@ -6,10 +6,28 @@
     <description>Recent content on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 07 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Python 直接赋值、浅拷贝和深拷贝</title>
+      <link>http://localhost:1313/post/copy-and-deepcopy/</link>
+      <pubDate>Sun, 19 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/copy-and-deepcopy/</guid>
+      <description>总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷</description>
+    </item>
+    
+    <item>
+      <title>Web页面请求的历程</title>
+      <link>http://localhost:1313/post/process-of-getting-web-page/</link>
+      <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/process-of-getting-web-page/</guid>
+      <description>关于web页面请求的历程，这是一个老生常谈的话题了，在很多面经中都看到过类似的问题：“从输入URL到页面加载发生了什么”。最近看完了《计算机</description>
+    </item>
     
     <item>
       <title>服务器自建Bitwarden密码管理器</title>
@@ -18,6 +36,15 @@
       
       <guid>http://localhost:1313/post/self-host-bitwarden/</guid>
       <description>一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其</description>
+    </item>
+    
+    <item>
+      <title>acme.sh申请泛域名（通配符）证书</title>
+      <link>http://localhost:1313/post/use-acme-getting-wildcard-certificate/</link>
+      <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/use-acme-getting-wildcard-certificate/</guid>
+      <description>acme.sh 实现了 acme 协议, 可以从 Let’s Encrypt 生成免费的证书。Let’s Encrypt自18年起宣布支持泛域名证书。 使用acme.sh生成泛域名证书，配</description>
     </item>
     
     <item>
