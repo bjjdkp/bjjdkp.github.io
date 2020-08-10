@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ios App版本回退 - bjjdkp的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="bjjdkp" /><meta name="description" content="虎扑 App 最新一版更新实在是槽点满满，分类过细、蓝色标题喧宾夺主，最最重要的是找不到开放区入口了，这点实在是不能忍，我感觉这次更新是比较失败的。" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/ios-app-rollback/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="ios App版本回退" />
+<meta property="og:description" content="虎扑 App 最新一版更新实在是槽点满满，分类过细、蓝色标题喧宾夺主，最最重要的是找不到开放区入口了，这点实在是不能忍，我感觉这次更新是比较失败的。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/ios-app-rollback/" />
+<meta property="article:published_time" content="2019-01-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-01-04T00:00:00+00:00" />
+<meta itemprop="name" content="ios App版本回退">
+<meta itemprop="description" content="虎扑 App 最新一版更新实在是槽点满满，分类过细、蓝色标题喧宾夺主，最最重要的是找不到开放区入口了，这点实在是不能忍，我感觉这次更新是比较失败的。">
+<meta itemprop="datePublished" content="2019-01-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-01-04T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1040">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ios App版本回退"/>
+<meta name="twitter:description" content="虎扑 App 最新一版更新实在是槽点满满，分类过细、蓝色标题喧宾夺主，最最重要的是找不到开放区入口了，这点实在是不能忍，我感觉这次更新是比较失败的。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Bjjdkp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Bjjdkp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">ios App版本回退</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-01-04 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%85%B6%E4%BB%96/"> 其他 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#所需工具">所需工具</a>
+      <ul>
+        <li><a href="#itunes">iTunes</a></li>
+        <li><a href="#charles">Charles</a>
+          <ul>
+            <li><a href="#charles-注册">Charles 注册</a></li>
+            <li><a href="#charles-配置">Charles 配置</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#下载旧版本app">下载旧版本App</a></li>
+    <li><a href="#在手机-app-store-中屏蔽软件更新">在手机 App Store 中屏蔽软件更新</a></li>
+    <li><a href="#同步至手机">同步至手机</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>虎扑 App 最新一版更新实在是槽点满满，分类过细、蓝色标题喧宾夺主，最最重要的是找不到开放区入口了，这点实在是不能忍，我感觉这次更新是比较失败的。但作为一个虎扑重度使用者，又不忍卸载。马上就过年了，不知道虎扑还会有怎样的更新，记录下这篇 ios 上的app版本回退教程。</p>
+<h2 id="所需工具">所需工具</h2>
+<h3 id="itunes">iTunes</h3>
+<p><a data-fancybox="gallery" href="/images/201901/ios-app-rollback/1745532990.jpeg"><img src="/images/201901/ios-app-rollback/1745532990.jpeg"></a></p>
+<blockquote>
+<p>需使用 iTunes 下载旧版App，不过 iTunes 12.7 及之后的版本移除了App Store的功能，所以需在 <a href="https://ipsw.me/">IPSW Downloads</a>下载旧版 iTunes, 本文以 <code>iTunes 12.6.3</code> 为例。</p>
+<blockquote>
+<p><em>注：Mojave 上貌似不允许 iTunes 降级，而我也未在之前版本的 macOS 系统测试过，所以建议在Windows 平台下操作。</em></p>
+</blockquote>
+</blockquote>
+<h3 id="charles">Charles</h3>
+<p><a data-fancybox="gallery" href="/images/201901/ios-app-rollback/WX20190105-222257.png"><img src="/images/201901/ios-app-rollback/WX20190105-222257.png"></a></p>
+<blockquote>
+<p>Charles 是一款抓包软件，可以获取并更改下载 App 的版本id<br>
+在 <a href="https://www.charlesproxy.com/download/">Charles官网</a>下载Windows平台的 Charles软件并安装。</p>
+</blockquote>
+<h4 id="charles-注册">Charles 注册</h4>
+<p>由于 Charles 是一款收费软件，未注册情况下每使用30分钟后会被强制退出，所以建议注册后使用。在 Charles 菜单栏的 Help 选项中的注册设置，注册码如下：</p>
+<blockquote>
+<p>Registered Name: <a href="https://zhile.io">https://zhile.io</a><br>
+License Key: 48891cf209c6d32bf4</p>
+</blockquote>
+<h4 id="charles-配置">Charles 配置</h4>
+<p>在 <code>Proxy</code> <code>SSL Proxying Settings</code> 中添加配置</p>
+<p><a data-fancybox="gallery" href="/images/201901/ios-app-rollback/20190104160314.png"><img src="/images/201901/ios-app-rollback/20190104160314.png"></a></p>
+<p><a data-fancybox="gallery" href="/images/201901/ios-app-rollback/20190104160407.png"><img src="/images/201901/ios-app-rollback/20190104160407.png"></a></p>
+<p>在 <code>Help</code> 选项中安装证书，一直点确认即可</p>
+<p><a data-fancybox="gallery" href="/images/201901/ios-app-rollback/20190104160519.png"><img src="/images/201901/ios-app-rollback/20190104160519.png"></a></p>
+<p>安装完证书需信任证书，<code>win</code>+<code>r</code> 打开运行窗口，输入 <code>certmgr.msc</code> 打开证书设置窗口，将Charles 的证书拖到 <code>受信任的根证书颁发机构</code></p>
+<p><a data-fancybox="gallery" href="/images/201901/ios-app-rollback/20190104165446.png"><img src="/images/201901/ios-app-rollback/20190104165446.png"></a></p>
+<h2 id="下载旧版本app">下载旧版本App</h2>
+<p>先打开 iTunes 并登录，然后打开 Charles。<br>
+<em>注：在打开 Charles 后，iTunes 无法登录，所以请按照上边的顺序执行。</em><br>
+在 iTunes 中搜索虎扑并点击下载，Charles 中能看到很多包，展开 <code>https://p18-buy.itunes.apple.com</code>， 点击最下层的 <code>buyProduct</code>。</p>
+<p><a data-fancybox="gallery" href="/images/201901/ios-app-rollback/20190104172054.png"><img src="/images/201901/ios-app-rollback/20190104172054.png"></a></p>
+<p>右下角选择 <code>XML Text</code>，滑动可找到一列有序数组，可以猜到这就是 App 版本号了，上边为旧版本，下边为新版本。根据测试 <code>829116711</code>为更新社区前的最新一版，当然你可以下载之前的任意版本。<br>
+右键点击刚刚的 <code>https://p18-buy.itunes.apple.com</code>，在出现的菜单中点击 <code>BreakPoints</code>，即断点。</p>
+<p><a data-fancybox="gallery" href="/images/201901/ios-app-rollback/20190104173309.png"><img src="/images/201901/ios-app-rollback/20190104173309.png"></a></p>
+<p>在 iTunes 的资料库中删除刚刚下载的最新版 App，再次搜索虎扑并点击下载，由于刚刚设置了断点，所以此时下载会在断点处中断。</p>
+<p><a data-fancybox="gallery" href="/images/201901/ios-app-rollback/20190104174233.png"><img src="/images/201901/ios-app-rollback/20190104174233.png"></a></p>
+<p>将图中的版本号替换为想要下载的版本号即可，此处以 <code>829116711</code> 为例。<br>
+更换完成后一直点击 <code>Execute</code> ，等待最终下载完成。</p>
+<h2 id="在手机-app-store-中屏蔽软件更新">在手机 App Store 中屏蔽软件更新</h2>
+<p>在 Windows 的资源管理器中，将app后续名ipa改为rar，打开压缩包后删除里面的iTunesMetadata.plist，改回ipa。</p>
+<h2 id="同步至手机">同步至手机</h2>
+<p>手机连接到电脑，将刚刚下载的 App 拖到手机安装。</p>
+<p><a data-fancybox="gallery" href="/images/201901/ios-app-rollback/20190104175015.png"><img src="/images/201901/ios-app-rollback/20190104175015.png"></a></p>
+<blockquote>
+<p>我的手机上曾下载过国际版 PUBG，所以在安装 App 时失败了，只能把 PUBG 卸载。
+也就是说手机上的 App 必须都是你的个人 AppleId 下载的，否则会安装失败。</p>
+</blockquote>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">bjjdkp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-01-04
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/chrome-screenshotandroid-studio-debug/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">使用Chrome对网页长截图</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/anti-lianjia-app/">
+            <span class="next-text nav-default">链家App反编译破解加密字段</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">bjjdkp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

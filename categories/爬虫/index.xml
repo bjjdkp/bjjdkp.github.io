@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>爬虫 on bjjdkp的博客</title>
+    <link>http://localhost:1313/categories/%E7%88%AC%E8%99%AB/</link>
+    <description>Recent content in 爬虫 on bjjdkp的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 05 Nov 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>链家App反编译破解加密字段</title>
+      <link>http://localhost:1313/post/anti-lianjia-app/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/anti-lianjia-app/</guid>
+      <description>一般移动端的请求都会带一些加密字段，比如链家App的 Authorization，这是由后端动态生成的，因此想要实现对App的数据爬取，需要破</description>
+    </item>
+    
+    <item>
+      <title>Android Studio集成Genymotion调试App</title>
+      <link>http://localhost:1313/post/android-studio-debug/</link>
+      <pubDate>Fri, 02 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/android-studio-debug/</guid>
+      <description>在反编译 App 分析加密字段生成逻辑时，可能会遇到一些参数，参与了加密字段的生成，但是不能在代码或是请求头中觅得踪迹，这时便需要通过断点调试代码，</description>
+    </item>
+    
+  </channel>
+</rss>

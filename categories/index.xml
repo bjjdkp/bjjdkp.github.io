@@ -6,26 +6,26 @@
     <description>Recent content in Categories on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 06 Apr 2011 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Development</title>
-      <link>http://localhost:1313/categories/development/</link>
-      <pubDate>Wed, 06 Apr 2011 00:00:00 +0000</pubDate>
+      <title>其他</title>
+      <link>http://localhost:1313/categories/%E5%85%B6%E4%BB%96/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/development/</guid>
+      <guid>http://localhost:1313/categories/%E5%85%B6%E4%BB%96/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>VIM</title>
-      <link>http://localhost:1313/categories/vim/</link>
-      <pubDate>Wed, 06 Apr 2011 00:00:00 +0000</pubDate>
+      <title>爬虫</title>
+      <link>http://localhost:1313/categories/%E7%88%AC%E8%99%AB/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/categories/vim/</guid>
+      <guid>http://localhost:1313/categories/%E7%88%AC%E8%99%AB/</guid>
       <description></description>
     </item>
     

@@ -6,18 +6,45 @@
     <description>Recent content on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 06 Apr 2011 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 17 Apr 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>dfdf new website</title>
-      <link>http://localhost:1313/post/spf13-vim-3-0-release-and-new-website/</link>
-      <pubDate>Wed, 06 Apr 2011 00:00:00 +0000</pubDate>
+      <title>使用Chrome对网页长截图</title>
+      <link>http://localhost:1313/post/chrome-screenshotandroid-studio-debug/</link>
+      <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/spf13-vim-3-0-release-and-new-website/</guid>
-      <description>总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷</description>
+      <guid>http://localhost:1313/post/chrome-screenshotandroid-studio-debug/</guid>
+      <description>在PC端，截图还算是比较常见的需求，使用微信等聊天软件可以轻松实现对窗口内容的截图。不过在浏览网页时，如果想要对网页长截图的话，微信等软件的</description>
+    </item>
+    
+    <item>
+      <title>ios App版本回退</title>
+      <link>http://localhost:1313/post/ios-app-rollback/</link>
+      <pubDate>Fri, 04 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/ios-app-rollback/</guid>
+      <description>虎扑 App 最新一版更新实在是槽点满满，分类过细、蓝色标题喧宾夺主，最最重要的是找不到开放区入口了，这点实在是不能忍，我感觉这次更新是比较失败的。</description>
+    </item>
+    
+    <item>
+      <title>链家App反编译破解加密字段</title>
+      <link>http://localhost:1313/post/anti-lianjia-app/</link>
+      <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/anti-lianjia-app/</guid>
+      <description>一般移动端的请求都会带一些加密字段，比如链家App的 Authorization，这是由后端动态生成的，因此想要实现对App的数据爬取，需要破</description>
+    </item>
+    
+    <item>
+      <title>Android Studio集成Genymotion调试App</title>
+      <link>http://localhost:1313/post/android-studio-debug/</link>
+      <pubDate>Fri, 02 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/android-studio-debug/</guid>
+      <description>在反编译 App 分析加密字段生成逻辑时，可能会遇到一些参数，参与了加密字段的生成，但是不能在代码或是请求头中觅得踪迹，这时便需要通过断点调试代码，</description>
     </item>
     
   </channel>
