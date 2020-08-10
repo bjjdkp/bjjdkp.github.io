@@ -6,10 +6,28 @@
     <description>Recent content on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 17 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>高匿代理和透明代理的区别</title>
+      <link>http://localhost:1313/post/gn-and-tm-proxy/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/gn-and-tm-proxy/</guid>
+      <description>每家代理ip网站几乎都会开放一些免费的代理ip，然而这些ip又会在网站上有高匿和透明等不同标识，这两种的区别在于服务器端能否识别客户端的真实</description>
+    </item>
+    
+    <item>
+      <title>蒙提霍尔问题（三门问题、山羊汽车问题）</title>
+      <link>http://localhost:1313/post/monty-hall-problem/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/monty-hall-problem/</guid>
+      <description>这个问题大致出自美国的电视游戏节目，问题的名字来自该节目的主持人蒙蒂·霍尔。参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车或者是奖品，</description>
+    </item>
     
     <item>
       <title>使用Chrome对网页长截图</title>
@@ -18,6 +36,24 @@
       
       <guid>http://localhost:1313/post/chrome-screenshotandroid-studio-debug/</guid>
       <description>在PC端，截图还算是比较常见的需求，使用微信等聊天软件可以轻松实现对窗口内容的截图。不过在浏览网页时，如果想要对网页长截图的话，微信等软件的</description>
+    </item>
+    
+    <item>
+      <title>Linux中su、su-和sudo区别</title>
+      <link>http://localhost:1313/post/su-sudo-difference/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/su-sudo-difference/</guid>
+      <description>这几个命令基本都是跟 Linux 下的用户权限控制相关。在 Linux 中开发，是不推荐使用 root 用户直接操作的。如果直接使用 root 用户，对内：用户本身权限过大，很容易对系</description>
+    </item>
+    
+    <item>
+      <title>使用 fabric 自动化部署项目</title>
+      <link>http://localhost:1313/post/fabric-deploy/</link>
+      <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/fabric-deploy/</guid>
+      <description>本文基于 Python3 和 fabric2，记录关于 fabric 自动化部署项目的基本语法。 fabric 不同版本间的区别 在 pypi 中搜索 fabric 能搜到三个相关的库： Fabric 和 fabric2： 同为官</description>
     </item>
     
     <item>

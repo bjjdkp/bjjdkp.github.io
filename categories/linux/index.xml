@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on bjjdkp的博客</title>
+    <link>http://localhost:1313/categories/linux/</link>
+    <description>Recent content in Linux on bjjdkp的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux中su、su-和sudo区别</title>
+      <link>http://localhost:1313/post/su-sudo-difference/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/su-sudo-difference/</guid>
+      <description>这几个命令基本都是跟 Linux 下的用户权限控制相关。在 Linux 中开发，是不推荐使用 root 用户直接操作的。如果直接使用 root 用户，对内：用户本身权限过大，很容易对系</description>
+    </item>
+    
+  </channel>
+</rss>

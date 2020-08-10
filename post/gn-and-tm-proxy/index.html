@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>高匿代理和透明代理的区别 - bjjdkp的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="bjjdkp" /><meta name="description" content="每家代理ip网站几乎都会开放一些免费的代理ip，然而这些ip又会在网站上有高匿和透明等不同标识，这两种的区别在于服务器端能否识别客户端的真实" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/gn-and-tm-proxy/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="高匿代理和透明代理的区别" />
+<meta property="og:description" content="每家代理ip网站几乎都会开放一些免费的代理ip，然而这些ip又会在网站上有高匿和透明等不同标识，这两种的区别在于服务器端能否识别客户端的真实" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/gn-and-tm-proxy/" />
+<meta property="article:published_time" content="2019-06-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-06-01T00:00:00+00:00" />
+<meta itemprop="name" content="高匿代理和透明代理的区别">
+<meta itemprop="description" content="每家代理ip网站几乎都会开放一些免费的代理ip，然而这些ip又会在网站上有高匿和透明等不同标识，这两种的区别在于服务器端能否识别客户端的真实">
+<meta itemprop="datePublished" content="2019-06-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-06-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1033">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="高匿代理和透明代理的区别"/>
+<meta name="twitter:description" content="每家代理ip网站几乎都会开放一些免费的代理ip，然而这些ip又会在网站上有高匿和透明等不同标识，这两种的区别在于服务器端能否识别客户端的真实"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Bjjdkp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Bjjdkp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">高匿代理和透明代理的区别</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-06-01 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%88%AC%E8%99%AB/"> 爬虫 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#搭建web服务">搭建Web服务</a></li>
+    <li><a href="#反向代理">反向代理</a></li>
+    <li><a href="#请求验证">请求验证</a>
+      <ul>
+        <li><a href="#不使用代理直接访问">不使用代理直接访问</a></li>
+        <li><a href="#使用透明代理访问">使用透明代理访问</a></li>
+        <li><a href="#使用高匿代理访问">使用高匿代理访问</a></li>
+      </ul>
+    </li>
+    <li><a href="#伪造请求头">伪造请求头</a>
+      <ul>
+        <li><a href="#使用透明代理访问-1">使用透明代理访问</a></li>
+        <li><a href="#使用高匿代理访问-1">使用高匿代理访问</a></li>
+      </ul>
+    </li>
+    <li><a href="#结论">结论</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>每家代理ip网站几乎都会开放一些免费的代理ip，然而这些ip又会在网站上有高匿和透明等不同标识，这两种的区别在于服务器端能否识别客户端的真实ip。</p>
+<h2 id="搭建web服务">搭建Web服务</h2>
+<p>为了验证区别，首先用flask在服务器上搭建一个简单的Web服务，打印出请求头信息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># --*-- coding:utf-8 --*--</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">request</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">headers</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">headers</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39;test&#39;</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="反向代理">反向代理</h2>
+<p>用nginx为Web服务做反向代理</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">charset</span> <span class="s">utf-8</span><span class="p">;</span>
+    <span class="kn">listen</span> <span class="mi">5555</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">http://127.0.0.1</span><span class="p">;</span>
+    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://127.0.0.1:5000</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Real-IP</span> <span class="nv">$remote_addr</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>proxy_set_header</code>可以更改或添加请求头信息，并转发到5000端口的后端服务。这里添加了三种常用配置。</p>
+<ul>
+<li>
+<p>Host<br>
+服务器的主机ip</p>
+</li>
+<li>
+<p>X-Real-IP<br>
+由<code>remote_addr </code>赋值，从字面意思理解可能是客户端的真实ip，其实不然，这个只是相对于服务器来讲的上一节点机器的ip。</p>
+</li>
+<li>
+<p>X-Forwarded-For<br>
+这是一个http扩展头，最初是由Squid代理缓存软件引入，标准格式如下：</p>
+<blockquote>
+<p>X-Forwarded-For : client, proxy1, proxy2</p>
+</blockquote>
+<p>最左边为客户端ip，请求经过代理节点，便会在后边追加ip，以逗号分隔。假设最终 X-Forwarded-For 结果如上，nginx 中 remote_addr 得到的是 <em>proxy2</em> 的ip，而不是client的ip。</p>
+</li>
+</ul>
+<h2 id="请求验证">请求验证</h2>
+<p>分别使用不同的代理访问web服务。</p>
+<h3 id="不使用代理直接访问">不使用代理直接访问</h3>
+<p><a data-fancybox="gallery" href="/images/201906/gn-and-tm-proxy/WX20190604-133114@2x.png"><img src="/images/201906/gn-and-tm-proxy/WX20190604-133114@2x.png"></a></p>
+<p>Host 为我的服务器ip，X-Real-IP 和 X-Forwarded-For 都是我的本地客户端ip。</p>
+<h3 id="使用透明代理访问">使用透明代理访问</h3>
+<p><a data-fancybox="gallery" href="/images/201906/gn-and-tm-proxy/WX20190604-134917@2x.png"><img src="/images/201906/gn-and-tm-proxy/WX20190604-134917@2x.png"></a>
+X-Real-IP 变成了代理的地址，但 X-Forwarded-For 正如它的标准格式一样，包含了我的客户端ip信息，同时请求头中还会包含 Via 这样的请求头，暴露了代理的软件信息。所以透明代理并不能完全隐匿客户端的真实ip。</p>
+<h3 id="使用高匿代理访问">使用高匿代理访问</h3>
+<p><a data-fancybox="gallery" href="/images/201906/gn-and-tm-proxy/WX20190604-133637@2x.png"><img src="/images/201906/gn-and-tm-proxy/WX20190604-133637@2x.png"></a></p>
+<p>X-Real-IP 和 X-Forwarded-For 都变成了高匿代理的ip，X-Forwarded-For 没有客户端的ip信息，因而服务端是无法据此检测到此次请求是否使用了代理。</p>
+<h2 id="伪造请求头">伪造请求头</h2>
+<p>这里有一个问题，既然 <code>X-Real-IP</code> 和 <code>X-Forwarded-For</code> 都是扩展的请求头，那直接在请求中伪造这两个请求头会如何。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 伪造请求头格式如下</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&#34;X-Real-Ip&#34;</span><span class="p">:</span> <span class="s2">&#34;11.11.11.11&#34;</span><span class="p">,</span>
+    <span class="s2">&#34;X-Forwarded-For&#34;</span><span class="p">:</span> <span class="s2">&#34;22.22.22.22&#34;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="使用透明代理访问-1">使用透明代理访问</h3>
+<p><a data-fancybox="gallery" href="/images/201906/gn-and-tm-proxy/WX20190604-140751@2x.png"><img src="/images/201906/gn-and-tm-proxy/WX20190604-140751@2x.png"></a></p>
+<h3 id="使用高匿代理访问-1">使用高匿代理访问</h3>
+<p><a data-fancybox="gallery" href="/images/201906/gn-and-tm-proxy/WX20190604-141131@2x.png"><img src="/images/201906/gn-and-tm-proxy/WX20190604-141131@2x.png"></a></p>
+<p>可以看到，影响甚微，就是在 X-Forwarded-For 的前端添加了伪造的ip，其他都没变。</p>
+<h2 id="结论">结论</h2>
+<p>在由nginx做反向代理的Web服务中，&ldquo;X-Real-Ip&rdquo; 是由 nginx 的 <code>remote_addr</code> 变量赋值，<code>remote_addr</code> 记录的是与服务器进行TCP三次握手的“客户端”地址，不一定是用户的本机地址，同时这个参数也无法伪造。<br>
+<code>X-Forwarded-For</code> 记录了请求经过的所有代理ip地址（有些代理服务器或CDN等可能会隐藏地址），每经过一个代理节点，便在最后追加地址。如果请求伪造了这个字段，也只是在最左边添加了伪造信息，经过的代理节点地址依旧会被追加记录。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">bjjdkp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-06-01
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/monty-hall-problem/">
+            <span class="next-text nav-default">蒙提霍尔问题（三门问题、山羊汽车问题）</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">bjjdkp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

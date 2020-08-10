@@ -6,10 +6,19 @@
     <description>Recent content in 爬虫 on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 05 Nov 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="http://localhost:1313/categories/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>高匿代理和透明代理的区别</title>
+      <link>http://localhost:1313/post/gn-and-tm-proxy/</link>
+      <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/gn-and-tm-proxy/</guid>
+      <description>每家代理ip网站几乎都会开放一些免费的代理ip，然而这些ip又会在网站上有高匿和透明等不同标识，这两种的区别在于服务器端能否识别客户端的真实</description>
+    </item>
     
     <item>
       <title>链家App反编译破解加密字段</title>

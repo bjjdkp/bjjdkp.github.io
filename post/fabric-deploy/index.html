@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>使用 fabric 自动化部署项目 - bjjdkp的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="bjjdkp" /><meta name="description" content="本文基于 Python3 和 fabric2，记录关于 fabric 自动化部署项目的基本语法。 fabric 不同版本间的区别 在 pypi 中搜索 fabric 能搜到三个相关的库： Fabric 和 fabric2： 同为官" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/fabric-deploy/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="使用 fabric 自动化部署项目" />
+<meta property="og:description" content="本文基于 Python3 和 fabric2，记录关于 fabric 自动化部署项目的基本语法。 fabric 不同版本间的区别 在 pypi 中搜索 fabric 能搜到三个相关的库： Fabric 和 fabric2： 同为官" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/post/fabric-deploy/" />
+<meta property="article:published_time" content="2019-04-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-04-10T00:00:00+00:00" />
+<meta itemprop="name" content="使用 fabric 自动化部署项目">
+<meta itemprop="description" content="本文基于 Python3 和 fabric2，记录关于 fabric 自动化部署项目的基本语法。 fabric 不同版本间的区别 在 pypi 中搜索 fabric 能搜到三个相关的库： Fabric 和 fabric2： 同为官">
+<meta itemprop="datePublished" content="2019-04-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-04-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="551">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用 fabric 自动化部署项目"/>
+<meta name="twitter:description" content="本文基于 Python3 和 fabric2，记录关于 fabric 自动化部署项目的基本语法。 fabric 不同版本间的区别 在 pypi 中搜索 fabric 能搜到三个相关的库： Fabric 和 fabric2： 同为官"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Bjjdkp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Bjjdkp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用 fabric 自动化部署项目</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-04-10 </span>
+        <div class="post-category">
+            <a href="/categories/python/"> Python </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#fabric-不同版本间的区别">fabric 不同版本间的区别</a></li>
+    <li><a href="#安装-fabric">安装 fabric</a></li>
+    <li><a href="#代码示例">代码示例</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>本文基于 Python3 和 fabric2，记录关于 fabric 自动化部署项目的基本语法。</p>
+<h2 id="fabric-不同版本间的区别">fabric 不同版本间的区别</h2>
+<p>在 <a href="https://pypi.org/search/?q=fabric">pypi</a> 中搜索 fabric 能搜到三个相关的库：</p>
+<p><a data-fancybox="gallery" href="/images/201904/fabric-deploy/20190410203607.png"><img src="/images/201904/fabric-deploy/20190410203607.png"></a></p>
+<ul>
+<li>Fabric 和 fabric2：<br>
+同为官方版，虽然名字不同，但可以看到，两者版本号完全相同，这两个现在就是同一个东西。除了安装出来的库名分别为 <code>fabric</code> 和 <code>fabric2</code>，用法完全一样。</li>
+<li>Fabric3：<br>
+由于原来 fabric 是不支持 Python3 的，这个 Fabric3 项目是别人 fork 出来加了 Python3 支持的。<br>
+最新版的 fabric 已经支持了 Python3，这个项目也基本不再维护了。</li>
+</ul>
+<p>新版 fabric 相对老版本的 fabric，已经完全重写了，接口有了很大的改动，且已支持 Python3. 所以无论你现在使用的是老版本的 fabric ，亦或是非官方不再维护的 Fabric3，建议升级到最新版的 fabric.</p>
+<h2 id="安装-fabric">安装 fabric</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">pip install fabric
+pip install fabric2
+</code></pre></td></tr></table>
+</div>
+</div><p>使用 pip 安装 fabric，以上两个命令均可，安装出来的库名不同，不过用法相同。</p>
+<h2 id="代码示例">代码示例</h2>
+<p>这里以简单部署博客代码为例，介绍 fabric 的基本用法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 旧版本 fabric 限制了文件名为 fabfile.py，在新版本中已经不限制文件名。</span>
+
+<span class="kn">from</span> <span class="nn">fabric</span> <span class="kn">import</span> <span class="n">Connection</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+	<span class="c1"># 创建连接，这里也可以使用 host+password 的方式，不过既不安全也不方便。</span>
+	<span class="c1"># 配置了 SSH 免密登录后，就不用指定 ip 和密码了。</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">Connection</span><span class="p">(</span><span class="s2">&#34;huangzy@blog&#34;</span><span class="p">)</span>
+    <span class="c1"># cd 目录跳转，确保每个命令执行的目录，否则会跳转到用户主目录</span>
+    <span class="k">with</span> <span class="n">c</span><span class="o">.</span><span class="n">cd</span><span class="p">(</span><span class="s1">&#39;/your_project_path&#39;</span><span class="p">):</span>
+    	<span class="c1"># run 执行命令</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;git pull&#34;</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;~/.virtualenvs/py3/bin/pip install -r ../requirements.txt&#34;</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;~/.virtualenvs/py3/bin/python manage.py collectstatic --noinput&#34;</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;~/.virtualenvs/py3/bin/python manage.py makemigrations&#34;</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;~/.virtualenvs/py3/bin/python manage.py migrate&#34;</span><span class="p">)</span>
+        <span class="n">c</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="s2">&#34;supervisorctl restart gunicorn_blog&#34;</span><span class="p">)</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>更多用法请参考<a href="http://www.fabfile.org/">官方文档</a>。</p>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">bjjdkp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-04-10
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/su-sudo-difference/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Linux中su、su-和sudo区别</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/ios-app-rollback/">
+            <span class="next-text nav-default">ios App版本回退</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">bjjdkp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
