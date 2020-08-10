@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>m条横线和n竖线可以组成多少矩形</title>
+      <link>http://localhost:1313/post/mn-lines-compose-rectangle/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/mn-lines-compose-rectangle/</guid>
+      <description>m条横线和n条竖线垂直相交，可以组成多少个矩形？ 这是我曾经经历过的一道面试题，解决方式很巧妙，让我这个数学渣渣真正体会到了用数学解决问题的魅</description>
+    </item>
+    
+    <item>
       <title>蒙提霍尔问题（三门问题、山羊汽车问题）</title>
       <link>http://localhost:1313/post/monty-hall-problem/</link>
       <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>

@@ -107,6 +107,13 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/post/mn-lines-compose-rectangle/</loc>
+    <lastmod>2019-05-02T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/categories/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2019-05-02T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -135,6 +142,13 @@
   </url>
   
   <url>
+    <loc>http://localhost:1313/post/linux-login-without-password/</loc>
+    <lastmod>2019-04-11T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>http://localhost:1313/post/su-sudo-difference/</loc>
     <lastmod>2019-04-11T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -144,6 +158,13 @@
   <url>
     <loc>http://localhost:1313/post/fabric-deploy/</loc>
     <lastmod>2019-04-10T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>http://localhost:1313/post/difference-between-makemigrations-and-migrate/</loc>
+    <lastmod>2019-03-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

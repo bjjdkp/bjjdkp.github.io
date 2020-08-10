@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Linux中su、su-和sudo区别 - bjjdkp的博客</title>
+  <title>Linux下ssh免密登录 - bjjdkp的博客</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="bjjdkp" /><meta name="description" content="这几个命令基本都是跟 Linux 下的用户权限控制相关。在 Linux 中开发，是不推荐使用 root 用户直接操作的。如果直接使用 root 用户，对内：用户本身权限过大，很容易对系" /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="bjjdkp" /><meta name="description" content="每次登录远程机器都使用密码的话，十分不方便，也有可能存在一定的安全隐患。如果使用客户端的话，可以用 SecureCRT 等软件统一管理，本文主要通过在终端中配置" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,7 +26,7 @@
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="http://localhost:1313/post/su-sudo-difference/" />
+<link rel="canonical" href="http://localhost:1313/post/linux-login-without-password/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -39,24 +39,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Linux中su、su-和sudo区别" />
-<meta property="og:description" content="这几个命令基本都是跟 Linux 下的用户权限控制相关。在 Linux 中开发，是不推荐使用 root 用户直接操作的。如果直接使用 root 用户，对内：用户本身权限过大，很容易对系" />
+<meta property="og:title" content="Linux下ssh免密登录" />
+<meta property="og:description" content="每次登录远程机器都使用密码的话，十分不方便，也有可能存在一定的安全隐患。如果使用客户端的话，可以用 SecureCRT 等软件统一管理，本文主要通过在终端中配置" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/su-sudo-difference/" />
+<meta property="og:url" content="http://localhost:1313/post/linux-login-without-password/" />
 <meta property="article:published_time" content="2019-04-11T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-04-11T00:00:00+00:00" />
-<meta itemprop="name" content="Linux中su、su-和sudo区别">
-<meta itemprop="description" content="这几个命令基本都是跟 Linux 下的用户权限控制相关。在 Linux 中开发，是不推荐使用 root 用户直接操作的。如果直接使用 root 用户，对内：用户本身权限过大，很容易对系">
+<meta itemprop="name" content="Linux下ssh免密登录">
+<meta itemprop="description" content="每次登录远程机器都使用密码的话，十分不方便，也有可能存在一定的安全隐患。如果使用客户端的话，可以用 SecureCRT 等软件统一管理，本文主要通过在终端中配置">
 <meta itemprop="datePublished" content="2019-04-11T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-04-11T00:00:00+00:00" />
-<meta itemprop="wordCount" content="764">
+<meta itemprop="wordCount" content="424">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Linux中su、su-和sudo区别"/>
-<meta name="twitter:description" content="这几个命令基本都是跟 Linux 下的用户权限控制相关。在 Linux 中开发，是不推荐使用 root 用户直接操作的。如果直接使用 root 用户，对内：用户本身权限过大，很容易对系"/>
+<meta name="twitter:title" content="Linux下ssh免密登录"/>
+<meta name="twitter:description" content="每次登录远程机器都使用密码的话，十分不方便，也有可能存在一定的安全隐患。如果使用客户端的话，可以用 SecureCRT 等软件统一管理，本文主要通过在终端中配置"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -119,7 +119,7 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Linux中su、su-和sudo区别</h1>
+      <h1 class="post-title">Linux下ssh免密登录</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2019-04-11 </span>
@@ -135,31 +135,59 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#su-和-su--">su 和 su -</a></li>
-    <li><a href="#sudo">sudo</a></li>
+    <li><a href="#在本地生成密钥">在本地生成密钥</a></li>
+    <li><a href="#在本地创建配置文件">在本地创建配置文件</a></li>
+    <li><a href="#远程机器配置">远程机器配置</a></li>
+    <li><a href="#文件访问权限设置">文件访问权限设置</a></li>
+    <li><a href="#无密码登录">无密码登录</a></li>
   </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      <p>这几个命令基本都是跟 Linux 下的用户权限控制相关。在 Linux 中开发，是不推荐使用 root 用户直接操作的。如果直接使用 root 用户，对内：用户本身权限过大，很容易对系统误伤；对外：一旦 root 身份运行的程序被攻击了，自己机器的 root 权限就直接暴露了。</p>
-<h2 id="su-和-su--">su 和 su -</h2>
-<p>su 的英文全称是 <code>Substitute User</code>，亦或者可以理解为 <code>Switch User</code>，即切换用户。<br>
-使用 <code>su - username</code> 或者 <code>su username</code>，可以切换用户。当 root 用户切换到其他用户时，不需要输入密码；当其他用户向 root 用户切换，需要输入 root 密码。<br>
-命令后边不加目标用户名时，直接使用 <code>su</code> 和 <code>su -</code> 命令，向 root 用户切换。</p>
-<p><a data-fancybox="gallery" href="/images/201904/su-sudo-difference/20190413101708.png"><img src="/images/201904/su-sudo-difference/20190413101708.png"></a></p>
+      <p>每次登录远程机器都使用密码的话，十分不方便，也有可能存在一定的安全隐患。如果使用客户端的话，可以用 <code>SecureCRT</code> 等软件统一管理，本文主要通过在终端中配置公钥的方式，实现免密登录。</p>
+<h2 id="在本地生成密钥">在本地生成密钥</h2>
+<p>在本地的用户家目录下创建 <code>.ssh</code> 文件夹，这是一个隐藏文件夹。<br>
+进入到 <code>.ssh</code> 文件夹，执行 <code>ssh-keygen</code> 命令生成密钥，无需输入口令或密码，一直回车即可跳过。最终生成了两个文件：</p>
 <ul>
-<li>使用 <code>su</code> 命令从普通用户向root用户切换，这种方式得到一个 <code>non-login shell</code>，可以看到 pwd 以及 PATH 都没改变，这样仅仅是切换了 root 身份，shell环境仍然是普通用户的。</li>
-<li>使用 <code>su -</code> 命令，在登录和退出时可以看到 <code>login</code>以及<code>logout</code>，因为这种方式得到的是一个 <code>login shell</code>，pwd 和 PATH 都分别切换到了 root 用户的家目录和 PATH.</li>
+<li>id_rsa ：私钥</li>
+<li>id_rsa.pub ：公钥</li>
 </ul>
-<p><em>上图中我的普通用户前边没有用户标识，是由于我在用户环境下安装了Zsh.</em></p>
-<h2 id="sudo">sudo</h2>
-<p>sudo 的英文全称是 <code>superuser user do</code>，即使用 root 权限去执行命令。<br>
-在开发中，难免有些命令需要root权限执行，此时不建议切换root用户去执行，效率问题倒是其次，这样需要在普通用户和root用户下配置两套环境，有可能造成环境管理混乱，或者是冗余。因此建议只在普通用户下操作，使用 <code>sudo</code> 命令，执行需要root权限的操作。<br>
-在 Linux 中，管理 sudo 的配置文件是 <code>/etc/sudoers</code>，这是一个只读文件，通过命令 <code>visudo</code> 更改文件配置。</p>
-<p><a data-fancybox="gallery" href="/images/201904/su-sudo-difference/20190413112455.png"><img src="/images/201904/su-sudo-difference/20190413112455.png"></a></p>
-<p>如果需求比较复杂的话，文件中也给出了 Host、User、Command等多种别名配置的示例，具体可以参考 <code>/etc/sudoers</code> 文件。</p>
-<p>配置好之后，普通用户即可通过 <code>sudo</code> + command，执行一些需要 root 权限的命令，只需要输入当前用户密码，而不用输入 root 用户密码。这样无论是在安全性，还是在环境管理等方面，都有极大的益处。</p>
+<h2 id="在本地创建配置文件">在本地创建配置文件</h2>
+<p>同样在本地的 <code>.ssh</code> 文件夹下，创建 <code>config</code> 文件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback"># config文件
+
+HOST login_alias # 登录别名
+ 	HostName xx.xx.xx.xx # 远程机器ip
+    User anthony # 登录的用户
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="远程机器配置">远程机器配置</h2>
+<p>在远程机器的用户家目录下创建 <code>.ssh</code> 文件夹。<br>
+进入到 <code>.ssh</code> 文件夹，创建 <code>authorized_keys</code> 文件，将本地生成的公钥内容粘到<code>authorized_keys</code> 文件中。</p>
+<h2 id="文件访问权限设置">文件访问权限设置</h2>
+<p>远程机器上，<code>.ssh</code> 文件夹和 <code>authorized_keys </code> 文件的读写权限也是影响配置成功率的一个重要因素。经验来讲，组用户和其他用户不能添加写权限。修改权限：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">chmod <span class="m">700</span> ~/.ssh
+chmod <span class="m">600</span> ~/.ssh/authorized_keys
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="无密码登录">无密码登录</h2>
+<p>根据本机 <code>config</code> 中的配置，使用命令 <code>ssh login_alias </code> 即会登录到远程机器的 anthony 用户下。</p>
 
     </div>
 
@@ -181,13 +209,13 @@
 <footer class="post-footer">
       
       <nav class="post-nav">
-        <a class="prev" href="/post/linux-login-without-password/">
+        <a class="prev" href="/post/chrome-screenshotandroid-studio-debug/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Linux下ssh免密登录</span>
+            <span class="prev-text nav-default">使用Chrome对网页长截图</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/fabric-deploy/">
-            <span class="next-text nav-default">使用 fabric 自动化部署项目</span>
+        <a class="next" href="/post/su-sudo-difference/">
+            <span class="next-text nav-default">Linux中su、su-和sudo区别</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>

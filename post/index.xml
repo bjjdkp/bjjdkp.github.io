@@ -84,6 +84,15 @@
     </item>
     
     <item>
+      <title>m条横线和n竖线可以组成多少矩形</title>
+      <link>http://localhost:1313/post/mn-lines-compose-rectangle/</link>
+      <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/mn-lines-compose-rectangle/</guid>
+      <description>m条横线和n条竖线垂直相交，可以组成多少个矩形？ 这是我曾经经历过的一道面试题，解决方式很巧妙，让我这个数学渣渣真正体会到了用数学解决问题的魅</description>
+    </item>
+    
+    <item>
       <title>蒙提霍尔问题（三门问题、山羊汽车问题）</title>
       <link>http://localhost:1313/post/monty-hall-problem/</link>
       <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
@@ -102,6 +111,15 @@
     </item>
     
     <item>
+      <title>Linux下ssh免密登录</title>
+      <link>http://localhost:1313/post/linux-login-without-password/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/linux-login-without-password/</guid>
+      <description>每次登录远程机器都使用密码的话，十分不方便，也有可能存在一定的安全隐患。如果使用客户端的话，可以用 SecureCRT 等软件统一管理，本文主要通过在终端中配置</description>
+    </item>
+    
+    <item>
       <title>Linux中su、su-和sudo区别</title>
       <link>http://localhost:1313/post/su-sudo-difference/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
@@ -117,6 +135,15 @@
       
       <guid>http://localhost:1313/post/fabric-deploy/</guid>
       <description>本文基于 Python3 和 fabric2，记录关于 fabric 自动化部署项目的基本语法。 fabric 不同版本间的区别 在 pypi 中搜索 fabric 能搜到三个相关的库： Fabric 和 fabric2： 同为官</description>
+    </item>
+    
+    <item>
+      <title>Django 中 makemigrations 和 migrate 区别</title>
+      <link>http://localhost:1313/post/difference-between-makemigrations-and-migrate/</link>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/post/difference-between-makemigrations-and-migrate/</guid>
+      <description>偶然间看到了关于 Django 中 makemigrations 和 migrate 区别的一段解释，豁然开朗。 According the Polls tutorial： 1.python manage.py makemigrations &amp;lt;app&amp;gt;: Create the migrations (generate the SQL commands). 2.python manage.py migrate: Run the migrations (execute the SQL commands).</description>
     </item>
     
     <item>
