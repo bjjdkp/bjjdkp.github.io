@@ -2,66 +2,66 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>其他 on bjjdkp的博客</title>
-    <link>http://localhost:1313/categories/%E5%85%B6%E4%BB%96/</link>
+    <link>https://bjjdkp.github.io/categories/%E5%85%B6%E4%BB%96/</link>
     <description>Recent content in 其他 on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 05 Jun 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bjjdkp.github.io/categories/%E5%85%B6%E4%BB%96/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>创建一个英文id</title>
-      <link>http://localhost:1313/post/create-an-english-id/</link>
+      <link>https://bjjdkp.github.io/post/create-an-english-id/</link>
       <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/create-an-english-id/</guid>
+      <guid>https://bjjdkp.github.io/post/create-an-english-id/</guid>
       <description>因为喜欢安东尼，所以我一直使用的中文id是小铁瓜，不过仍旧一直想创建一个尽可能独一无二的英文id来使用。 为什么要用英文id，主要还是因为中文</description>
     </item>
     
     <item>
       <title>服务器自建Bitwarden密码管理器</title>
-      <link>http://localhost:1313/post/self-host-bitwarden/</link>
+      <link>https://bjjdkp.github.io/post/self-host-bitwarden/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/self-host-bitwarden/</guid>
+      <guid>https://bjjdkp.github.io/post/self-host-bitwarden/</guid>
       <description>一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其</description>
     </item>
     
     <item>
       <title>acme.sh申请泛域名（通配符）证书</title>
-      <link>http://localhost:1313/post/use-acme-getting-wildcard-certificate/</link>
+      <link>https://bjjdkp.github.io/post/use-acme-getting-wildcard-certificate/</link>
       <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/use-acme-getting-wildcard-certificate/</guid>
+      <guid>https://bjjdkp.github.io/post/use-acme-getting-wildcard-certificate/</guid>
       <description>acme.sh 实现了 acme 协议, 可以从 Let’s Encrypt 生成免费的证书。Let’s Encrypt自18年起宣布支持泛域名证书。 使用acme.sh生成泛域名证书，配</description>
     </item>
     
     <item>
       <title>在 macOS 上运行 docker GUI 程序</title>
-      <link>http://localhost:1313/post/running-guis-with-docker-on-macos/</link>
+      <link>https://bjjdkp.github.io/post/running-guis-with-docker-on-macos/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/running-guis-with-docker-on-macos/</guid>
+      <guid>https://bjjdkp.github.io/post/running-guis-with-docker-on-macos/</guid>
       <description>其实这件事的源头在于之前一直想白嫖 Studio 3T，但网上的破解方式基本都是 Windows 平台的，无意间看到了这种解决方案。 用 docker 安装 Linux 版的 Studio 3T，同样是有30天试</description>
     </item>
     
     <item>
       <title>使用Chrome对网页长截图</title>
-      <link>http://localhost:1313/post/chrome-screenshotandroid-studio-debug/</link>
+      <link>https://bjjdkp.github.io/post/chrome-screenshotandroid-studio-debug/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/chrome-screenshotandroid-studio-debug/</guid>
+      <guid>https://bjjdkp.github.io/post/chrome-screenshotandroid-studio-debug/</guid>
       <description>在PC端，截图还算是比较常见的需求，使用微信等聊天软件可以轻松实现对窗口内容的截图。不过在浏览网页时，如果想要对网页长截图的话，微信等软件的</description>
     </item>
     
     <item>
       <title>ios App版本回退</title>
-      <link>http://localhost:1313/post/ios-app-rollback/</link>
+      <link>https://bjjdkp.github.io/post/ios-app-rollback/</link>
       <pubDate>Fri, 04 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/ios-app-rollback/</guid>
+      <guid>https://bjjdkp.github.io/post/ios-app-rollback/</guid>
       <description>虎扑 App 最新一版更新实在是槽点满满，分类过细、蓝色标题喧宾夺主，最最重要的是找不到开放区入口了，这点实在是不能忍，我感觉这次更新是比较失败的。</description>
     </item>
     

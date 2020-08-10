@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>爬虫 on bjjdkp的博客</title>
-    <link>http://localhost:1313/categories/%E7%88%AC%E8%99%AB/</link>
+    <link>https://bjjdkp.github.io/categories/%E7%88%AC%E8%99%AB/</link>
     <description>Recent content in 爬虫 on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 19 Jul 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bjjdkp.github.io/categories/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>反编译虎扑 App 破解请求参数 sign</title>
-      <link>http://localhost:1313/post/get-hupu-app-sign-params/</link>
+      <link>https://bjjdkp.github.io/post/get-hupu-app-sign-params/</link>
       <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/get-hupu-app-sign-params/</guid>
+      <guid>https://bjjdkp.github.io/post/get-hupu-app-sign-params/</guid>
       <description>最近想爬虎扑的全量用户，初步打算从 App 端入手，不出意外，在请求中依旧碰到了加密参数。 请求参数 ios 端和 android 端的请求参数大同小异，这里以 android 端的请求参数</description>
     </item>
     
     <item>
       <title>高匿代理和透明代理的区别</title>
-      <link>http://localhost:1313/post/gn-and-tm-proxy/</link>
+      <link>https://bjjdkp.github.io/post/gn-and-tm-proxy/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/gn-and-tm-proxy/</guid>
+      <guid>https://bjjdkp.github.io/post/gn-and-tm-proxy/</guid>
       <description>每家代理ip网站几乎都会开放一些免费的代理ip，然而这些ip又会在网站上有高匿和透明等不同标识，这两种的区别在于服务器端能否识别客户端的真实</description>
     </item>
     
     <item>
       <title>构建代理池实现匿名访问的几种方式</title>
-      <link>http://localhost:1313/post/proxy-pool-for-anonymity/</link>
+      <link>https://bjjdkp.github.io/post/proxy-pool-for-anonymity/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/proxy-pool-for-anonymity/</guid>
+      <guid>https://bjjdkp.github.io/post/proxy-pool-for-anonymity/</guid>
       <description>做爬虫基本永远绕不开代理池，大规模的数据爬取，需要代理池来隐匿自己的真实ip ，否则只能对爬取速度做出妥协。 抛砖引玉，本文粗略记录几种实现匿名</description>
     </item>
     
     <item>
       <title>链家App反编译破解加密字段</title>
-      <link>http://localhost:1313/post/anti-lianjia-app/</link>
+      <link>https://bjjdkp.github.io/post/anti-lianjia-app/</link>
       <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/anti-lianjia-app/</guid>
+      <guid>https://bjjdkp.github.io/post/anti-lianjia-app/</guid>
       <description>一般移动端的请求都会带一些加密字段，比如链家App的 Authorization，这是由后端动态生成的，因此想要实现对App的数据爬取，需要破</description>
     </item>
     
     <item>
       <title>Android Studio集成Genymotion调试App</title>
-      <link>http://localhost:1313/post/android-studio-debug/</link>
+      <link>https://bjjdkp.github.io/post/android-studio-debug/</link>
       <pubDate>Fri, 02 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/android-studio-debug/</guid>
+      <guid>https://bjjdkp.github.io/post/android-studio-debug/</guid>
       <description>在反编译 App 分析加密字段生成逻辑时，可能会遇到一些参数，参与了加密字段的生成，但是不能在代码或是请求头中觅得踪迹，这时便需要通过断点调试代码，</description>
     </item>
     

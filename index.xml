@@ -2,192 +2,201 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>bjjdkp的博客</title>
-    <link>http://localhost:1313/</link>
+    <link>https://bjjdkp.github.io/</link>
     <description>Recent content on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 19 Jul 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bjjdkp.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>About</title>
+      <link>https://bjjdkp.github.io/about/</link>
+      <pubDate>Sat, 08 Aug 2020 21:47:07 +0800</pubDate>
+      
+      <guid>https://bjjdkp.github.io/about/</guid>
+      <description>这个人很懒，什么都没有留下。</description>
+    </item>
+    
+    <item>
       <title>Python 直接赋值、浅拷贝和深拷贝</title>
-      <link>http://localhost:1313/post/copy-and-deepcopy/</link>
+      <link>https://bjjdkp.github.io/post/copy-and-deepcopy/</link>
       <pubDate>Sun, 19 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/copy-and-deepcopy/</guid>
+      <guid>https://bjjdkp.github.io/post/copy-and-deepcopy/</guid>
       <description>总是混淆python中的赋值、浅拷贝和深拷贝的概念，写一篇笔记加强理解。 先上结论： 赋值：其实就是原对象多了一个引用。 浅拷贝(copy)：只拷</description>
     </item>
     
     <item>
       <title>Web页面请求的历程</title>
-      <link>http://localhost:1313/post/process-of-getting-web-page/</link>
+      <link>https://bjjdkp.github.io/post/process-of-getting-web-page/</link>
       <pubDate>Wed, 24 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/process-of-getting-web-page/</guid>
+      <guid>https://bjjdkp.github.io/post/process-of-getting-web-page/</guid>
       <description>关于web页面请求的历程，这是一个老生常谈的话题了，在很多面经中都看到过类似的问题：“从输入URL到页面加载发生了什么”。最近看完了《计算机</description>
     </item>
     
     <item>
       <title>创建一个英文id</title>
-      <link>http://localhost:1313/post/create-an-english-id/</link>
+      <link>https://bjjdkp.github.io/post/create-an-english-id/</link>
       <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/create-an-english-id/</guid>
+      <guid>https://bjjdkp.github.io/post/create-an-english-id/</guid>
       <description>因为喜欢安东尼，所以我一直使用的中文id是小铁瓜，不过仍旧一直想创建一个尽可能独一无二的英文id来使用。 为什么要用英文id，主要还是因为中文</description>
     </item>
     
     <item>
       <title>服务器自建Bitwarden密码管理器</title>
-      <link>http://localhost:1313/post/self-host-bitwarden/</link>
+      <link>https://bjjdkp.github.io/post/self-host-bitwarden/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/self-host-bitwarden/</guid>
+      <guid>https://bjjdkp.github.io/post/self-host-bitwarden/</guid>
       <description>一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其</description>
     </item>
     
     <item>
       <title>acme.sh申请泛域名（通配符）证书</title>
-      <link>http://localhost:1313/post/use-acme-getting-wildcard-certificate/</link>
+      <link>https://bjjdkp.github.io/post/use-acme-getting-wildcard-certificate/</link>
       <pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/use-acme-getting-wildcard-certificate/</guid>
+      <guid>https://bjjdkp.github.io/post/use-acme-getting-wildcard-certificate/</guid>
       <description>acme.sh 实现了 acme 协议, 可以从 Let’s Encrypt 生成免费的证书。Let’s Encrypt自18年起宣布支持泛域名证书。 使用acme.sh生成泛域名证书，配</description>
     </item>
     
     <item>
       <title>Scrapy 设置中 CONCURRENT_REQUESTS 及 DOWNLOAD_DELAY 等几个相关参数的作用</title>
-      <link>http://localhost:1313/post/concurrent_requests-and-download_delay/</link>
+      <link>https://bjjdkp.github.io/post/concurrent_requests-and-download_delay/</link>
       <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/concurrent_requests-and-download_delay/</guid>
+      <guid>https://bjjdkp.github.io/post/concurrent_requests-and-download_delay/</guid>
       <description>Scrapy设置中，关于并发及下载延迟是几个比较关键的参数，既影响着请求效率，同时关乎对方服务器的压力大小。 相关的几个参数： CONCURRENT_REQUESTS 默认值：16 S</description>
     </item>
     
     <item>
       <title>反编译虎扑 App 破解请求参数 sign</title>
-      <link>http://localhost:1313/post/get-hupu-app-sign-params/</link>
+      <link>https://bjjdkp.github.io/post/get-hupu-app-sign-params/</link>
       <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/get-hupu-app-sign-params/</guid>
+      <guid>https://bjjdkp.github.io/post/get-hupu-app-sign-params/</guid>
       <description>最近想爬虎扑的全量用户，初步打算从 App 端入手，不出意外，在请求中依旧碰到了加密参数。 请求参数 ios 端和 android 端的请求参数大同小异，这里以 android 端的请求参数</description>
     </item>
     
     <item>
       <title>在 macOS 上运行 docker GUI 程序</title>
-      <link>http://localhost:1313/post/running-guis-with-docker-on-macos/</link>
+      <link>https://bjjdkp.github.io/post/running-guis-with-docker-on-macos/</link>
       <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/running-guis-with-docker-on-macos/</guid>
+      <guid>https://bjjdkp.github.io/post/running-guis-with-docker-on-macos/</guid>
       <description>其实这件事的源头在于之前一直想白嫖 Studio 3T，但网上的破解方式基本都是 Windows 平台的，无意间看到了这种解决方案。 用 docker 安装 Linux 版的 Studio 3T，同样是有30天试</description>
     </item>
     
     <item>
       <title>高匿代理和透明代理的区别</title>
-      <link>http://localhost:1313/post/gn-and-tm-proxy/</link>
+      <link>https://bjjdkp.github.io/post/gn-and-tm-proxy/</link>
       <pubDate>Sat, 01 Jun 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/gn-and-tm-proxy/</guid>
+      <guid>https://bjjdkp.github.io/post/gn-and-tm-proxy/</guid>
       <description>每家代理ip网站几乎都会开放一些免费的代理ip，然而这些ip又会在网站上有高匿和透明等不同标识，这两种的区别在于服务器端能否识别客户端的真实</description>
     </item>
     
     <item>
       <title>构建代理池实现匿名访问的几种方式</title>
-      <link>http://localhost:1313/post/proxy-pool-for-anonymity/</link>
+      <link>https://bjjdkp.github.io/post/proxy-pool-for-anonymity/</link>
       <pubDate>Mon, 27 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/proxy-pool-for-anonymity/</guid>
+      <guid>https://bjjdkp.github.io/post/proxy-pool-for-anonymity/</guid>
       <description>做爬虫基本永远绕不开代理池，大规模的数据爬取，需要代理池来隐匿自己的真实ip ，否则只能对爬取速度做出妥协。 抛砖引玉，本文粗略记录几种实现匿名</description>
     </item>
     
     <item>
       <title>m条横线和n竖线可以组成多少矩形</title>
-      <link>http://localhost:1313/post/mn-lines-compose-rectangle/</link>
+      <link>https://bjjdkp.github.io/post/mn-lines-compose-rectangle/</link>
       <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/mn-lines-compose-rectangle/</guid>
+      <guid>https://bjjdkp.github.io/post/mn-lines-compose-rectangle/</guid>
       <description>m条横线和n条竖线垂直相交，可以组成多少个矩形？ 这是我曾经经历过的一道面试题，解决方式很巧妙，让我这个数学渣渣真正体会到了用数学解决问题的魅</description>
     </item>
     
     <item>
       <title>蒙提霍尔问题（三门问题、山羊汽车问题）</title>
-      <link>http://localhost:1313/post/monty-hall-problem/</link>
+      <link>https://bjjdkp.github.io/post/monty-hall-problem/</link>
       <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/monty-hall-problem/</guid>
+      <guid>https://bjjdkp.github.io/post/monty-hall-problem/</guid>
       <description>这个问题大致出自美国的电视游戏节目，问题的名字来自该节目的主持人蒙蒂·霍尔。参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车或者是奖品，</description>
     </item>
     
     <item>
       <title>使用Chrome对网页长截图</title>
-      <link>http://localhost:1313/post/chrome-screenshotandroid-studio-debug/</link>
+      <link>https://bjjdkp.github.io/post/chrome-screenshotandroid-studio-debug/</link>
       <pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/chrome-screenshotandroid-studio-debug/</guid>
+      <guid>https://bjjdkp.github.io/post/chrome-screenshotandroid-studio-debug/</guid>
       <description>在PC端，截图还算是比较常见的需求，使用微信等聊天软件可以轻松实现对窗口内容的截图。不过在浏览网页时，如果想要对网页长截图的话，微信等软件的</description>
     </item>
     
     <item>
       <title>Linux下ssh免密登录</title>
-      <link>http://localhost:1313/post/linux-login-without-password/</link>
+      <link>https://bjjdkp.github.io/post/linux-login-without-password/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/linux-login-without-password/</guid>
+      <guid>https://bjjdkp.github.io/post/linux-login-without-password/</guid>
       <description>每次登录远程机器都使用密码的话，十分不方便，也有可能存在一定的安全隐患。如果使用客户端的话，可以用 SecureCRT 等软件统一管理，本文主要通过在终端中配置</description>
     </item>
     
     <item>
       <title>Linux中su、su-和sudo区别</title>
-      <link>http://localhost:1313/post/su-sudo-difference/</link>
+      <link>https://bjjdkp.github.io/post/su-sudo-difference/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/su-sudo-difference/</guid>
+      <guid>https://bjjdkp.github.io/post/su-sudo-difference/</guid>
       <description>这几个命令基本都是跟 Linux 下的用户权限控制相关。在 Linux 中开发，是不推荐使用 root 用户直接操作的。如果直接使用 root 用户，对内：用户本身权限过大，很容易对系</description>
     </item>
     
     <item>
       <title>使用 fabric 自动化部署项目</title>
-      <link>http://localhost:1313/post/fabric-deploy/</link>
+      <link>https://bjjdkp.github.io/post/fabric-deploy/</link>
       <pubDate>Wed, 10 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/fabric-deploy/</guid>
+      <guid>https://bjjdkp.github.io/post/fabric-deploy/</guid>
       <description>本文基于 Python3 和 fabric2，记录关于 fabric 自动化部署项目的基本语法。 fabric 不同版本间的区别 在 pypi 中搜索 fabric 能搜到三个相关的库： Fabric 和 fabric2： 同为官</description>
     </item>
     
     <item>
       <title>Django 中 makemigrations 和 migrate 区别</title>
-      <link>http://localhost:1313/post/difference-between-makemigrations-and-migrate/</link>
+      <link>https://bjjdkp.github.io/post/difference-between-makemigrations-and-migrate/</link>
       <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/difference-between-makemigrations-and-migrate/</guid>
+      <guid>https://bjjdkp.github.io/post/difference-between-makemigrations-and-migrate/</guid>
       <description>偶然间看到了关于 Django 中 makemigrations 和 migrate 区别的一段解释，豁然开朗。 According the Polls tutorial： 1.python manage.py makemigrations &amp;lt;app&amp;gt;: Create the migrations (generate the SQL commands). 2.python manage.py migrate: Run the migrations (execute the SQL commands).</description>
     </item>
     
     <item>
       <title>ios App版本回退</title>
-      <link>http://localhost:1313/post/ios-app-rollback/</link>
+      <link>https://bjjdkp.github.io/post/ios-app-rollback/</link>
       <pubDate>Fri, 04 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/ios-app-rollback/</guid>
+      <guid>https://bjjdkp.github.io/post/ios-app-rollback/</guid>
       <description>虎扑 App 最新一版更新实在是槽点满满，分类过细、蓝色标题喧宾夺主，最最重要的是找不到开放区入口了，这点实在是不能忍，我感觉这次更新是比较失败的。</description>
     </item>
     
     <item>
       <title>链家App反编译破解加密字段</title>
-      <link>http://localhost:1313/post/anti-lianjia-app/</link>
+      <link>https://bjjdkp.github.io/post/anti-lianjia-app/</link>
       <pubDate>Mon, 05 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/anti-lianjia-app/</guid>
+      <guid>https://bjjdkp.github.io/post/anti-lianjia-app/</guid>
       <description>一般移动端的请求都会带一些加密字段，比如链家App的 Authorization，这是由后端动态生成的，因此想要实现对App的数据爬取，需要破</description>
     </item>
     
     <item>
       <title>Android Studio集成Genymotion调试App</title>
-      <link>http://localhost:1313/post/android-studio-debug/</link>
+      <link>https://bjjdkp.github.io/post/android-studio-debug/</link>
       <pubDate>Fri, 02 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/android-studio-debug/</guid>
+      <guid>https://bjjdkp.github.io/post/android-studio-debug/</guid>
       <description>在反编译 App 分析加密字段生成逻辑时，可能会遇到一些参数，参与了加密字段的生成，但是不能在代码或是请求头中觅得踪迹，这时便需要通过断点调试代码，</description>
     </item>
     

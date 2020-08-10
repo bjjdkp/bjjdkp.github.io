@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数学与算法 on bjjdkp的博客</title>
-    <link>http://localhost:1313/categories/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
+    <link>https://bjjdkp.github.io/categories/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/</link>
     <description>Recent content in 数学与算法 on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 02 May 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://bjjdkp.github.io/categories/%E6%95%B0%E5%AD%A6%E4%B8%8E%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>m条横线和n竖线可以组成多少矩形</title>
-      <link>http://localhost:1313/post/mn-lines-compose-rectangle/</link>
+      <link>https://bjjdkp.github.io/post/mn-lines-compose-rectangle/</link>
       <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/mn-lines-compose-rectangle/</guid>
+      <guid>https://bjjdkp.github.io/post/mn-lines-compose-rectangle/</guid>
       <description>m条横线和n条竖线垂直相交，可以组成多少个矩形？ 这是我曾经经历过的一道面试题，解决方式很巧妙，让我这个数学渣渣真正体会到了用数学解决问题的魅</description>
     </item>
     
     <item>
       <title>蒙提霍尔问题（三门问题、山羊汽车问题）</title>
-      <link>http://localhost:1313/post/monty-hall-problem/</link>
+      <link>https://bjjdkp.github.io/post/monty-hall-problem/</link>
       <pubDate>Thu, 02 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/monty-hall-problem/</guid>
+      <guid>https://bjjdkp.github.io/post/monty-hall-problem/</guid>
       <description>这个问题大致出自美国的电视游戏节目，问题的名字来自该节目的主持人蒙蒂·霍尔。参赛者会看见三扇关闭了的门，其中一扇的后面有一辆汽车或者是奖品，</description>
     </item>
     
