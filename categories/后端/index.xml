@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>后端 on bjjdkp的博客</title>
+    <link>https://bjjdkp.github.io/categories/%E5%90%8E%E7%AB%AF/</link>
+    <description>Recent content in 后端 on bjjdkp的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 11 Aug 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://bjjdkp.github.io/categories/%E5%90%8E%E7%AB%AF/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo &amp; GitHub Pages 搭建博客</title>
+      <link>https://bjjdkp.github.io/post/hugo-githubpages/</link>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bjjdkp.github.io/post/hugo-githubpages/</guid>
+      <description>原来的博客是Django配上一个十分简陋的前端模版，搭建在腾讯云上。 这样做的好处是可以练练全栈技术，并拥有极致化的自定义选择。 但同时搭在国内</description>
+    </item>
+    
+  </channel>
+</rss>
