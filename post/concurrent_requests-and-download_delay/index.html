@@ -364,22 +364,24 @@ DOWNLOAD_DELAY = 5
     </footer>
   </article>
         </div>
-        <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    (function() {
-      
-      
-      if (window.location.hostname === 'localhost') return;
-
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      var disqus_shortname = 'blog-huangzy';
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        
 
   
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'RzNIC3HpOCT0jAfhrnUTf0Hn-gzGzoHsz',
+        appKey: 'sEf9hSB4X3K69Pf8Wp1VrhBs',
+        notify:  true ,
+        verify:  true ,
+        avatar:'mm',
+        placeholder: '说点什么吧...',
+        visitor:  false 
+    });
+  </script>
 
   
 
