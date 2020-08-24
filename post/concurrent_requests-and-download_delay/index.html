@@ -49,7 +49,7 @@
 <meta itemprop="description" content="Scrapy的默认设置中，有几个关于并发请求及下载延迟的参数，这几个参数的设置，既影响请求效率，同时关乎对方服务器的压力大小。 相关的几个参数">
 <meta itemprop="datePublished" content="2019-08-19T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2019-08-19T00:00:00+00:00" />
-<meta itemprop="wordCount" content="2082">
+<meta itemprop="wordCount" content="1978">
 
 
 
@@ -167,7 +167,7 @@ Scrapy下载器发送的最大并发请求数。</p>
 <p>CONCURRENT_REQUESTS_PER_IP<br>
 默认值：<code>0</code><br>
 针对某一ip的最大并发请求数。如果此项非0的话，它的优先级高于<code>CONCURRENT_REQUESTS_PER_DOMAIN</code>。也就是说此时的并发数量限制是基于ip的，而非域名。<br>
-同时这个设置也会影响到<code>DOWNLOAD_DELAY</code>，如果<code>CONCURRENT_REQUESTS_PER_DOMAIN</code>非0，下载延迟会基于ip，而非域名。</p>
+同时这个设置也会影响到<code>DOWNLOAD_DELAY</code>，如果<code>CONCURRENT_REQUESTS_PER_IP</code>非0，下载延迟会基于ip，而非域名。</p>
 </li>
 <li>
 <p>DOWNLOAD_DELAY<br>
@@ -266,7 +266,7 @@ Scrapy下载器发送的最大并发请求数。</p>
 </code></pre></td></tr></table>
 </div>
 </div><p><a data-fancybox="gallery" href="/images/201908/CONCURRENT_REQUESTS-and-DOWNLOAD_DELAY/WX20190819-210950@2x.png"><img src="/images/201908/CONCURRENT_REQUESTS-and-DOWNLOAD_DELAY/WX20190819-210950@2x.png"></a></p>
-<p>结论：这里没什么太多可说的，结果如预想一样，同样都起到了限制并发的作用。</p>
+<p>结果显而易见，<code>CONCURRENT_REQUESTS</code>限制了总并发数，<code>CONCURRENT_REQUESTS_PER_DOMAIN</code>分别对单个域名的并发数起到了限制。</p>
 <h3 id="同时设置concurrent_requests和concurrent_requests_per_domain">同时设置<code>CONCURRENT_REQUESTS</code>和<code>CONCURRENT_REQUESTS_PER_DOMAIN</code></h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -279,8 +279,7 @@ CONCURRENT_REQUESTS_PER_DOMAIN = 4
 </code></pre></td></tr></table>
 </div>
 </div><p><a data-fancybox="gallery" href="/images/201908/CONCURRENT_REQUESTS-and-DOWNLOAD_DELAY/WX20190819-211218@2x.png"><img src="/images/201908/CONCURRENT_REQUESTS-and-DOWNLOAD_DELAY/WX20190819-211218@2x.png"></a></p>
-<p>这结果其实还有点小意外的，很多人可能期待的是8个并发请求。同为<code>CONCURRENT_REQUESTS*</code>格式命名的参数，<code>CONCURRENT_REQUESTS_PER_DOMAIN</code>作为更细化的设置，竟然没有覆盖<code>CONCURRENT_REQUESTS</code>参数，而是共存。<br>
-结论：在同时设置<code>CONCURRENT_REQUESTS</code>和<code>CONCURRENT_REQUESTS_PER_DOMAIN</code>时，两者不存在覆盖关系，而是共同对并发数起到了限制，两者的交集决定了最大并发数。</p>
+<p>在同时设置<code>CONCURRENT_REQUESTS</code>和<code>CONCURRENT_REQUESTS_PER_DOMAIN</code>时，两者不存在覆盖关系，而是共同对并发数起到了限制，两者的交集决定了最大并发数。</p>
 <h3 id="不开启并发同时将spider中的请求队列改为只向一个地址发送请求测试下载delay">不开启并发，同时将spider中的请求队列改为只向一个地址发送请求，测试下载DELAY</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -327,7 +326,7 @@ DOWNLOAD_DELAY = 5
 <h2 id="总结">总结</h2>
 <ol>
 <li>在同时设置<code>CONCURRENT_REQUESTS</code>和<code>CONCURRENT_REQUESTS_PER_DOMAIN</code>时，两者不存在覆盖关系，而是共同对并发数起到了限制，两者的交集决定了最大并发数。</li>
-<li><code>DOWNLOAD_DELAY</code>默认作用于每个域名下的请求，针对单个域名的请求，进行DELAY；下载间隔在发送请求后即开始计数，到达设定值发送下一次请求，无关响应。</li>
+<li><code>DOWNLOAD_DELAY</code>只作用于单个地址下的请求，进行DELAY；下载间隔在发送请求后即开始计数，到达设定值发送下一次请求，无关响应。</li>
 </ol>
 
     </div>
