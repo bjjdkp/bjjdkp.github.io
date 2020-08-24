@@ -26,7 +26,7 @@
       <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://bjjdkp.github.io/post/concurrent_requests-and-download_delay/</guid>
-      <description>Scrapy设置中，关于并发及下载延迟是几个比较关键的参数，既影响着请求效率，同时关乎对方服务器的压力大小。 相关的几个参数： CONCURRENT_REQUESTS 默认值：16 S</description>
+      <description>Scrapy的默认设置中，有几个关于并发请求及下载延迟的参数，这几个参数的设置，既影响请求效率，同时关乎对方服务器的压力大小。 相关的几个参数</description>
     </item>
     
     <item>
