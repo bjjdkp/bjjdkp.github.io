@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Wireshark 抓包分析 HTTP 和 HTTPS - bjjdkp的博客</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="bjjdkp" /><meta name="description" content="HTTP 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.74.3 with theme even" />
+
+
+<link rel="canonical" href="https://bjjdkp.github.io/post/wireshark-http-https/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.651e6917abb0239242daa570c2bec9867267bbcd83646da5a850afe573347b44.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Wireshark 抓包分析 HTTP 和 HTTPS" />
+<meta property="og:description" content="HTTP 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bjjdkp.github.io/post/wireshark-http-https/" />
+<meta property="article:published_time" content="2020-09-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-15T00:00:00+00:00" />
+<meta itemprop="name" content="Wireshark 抓包分析 HTTP 和 HTTPS">
+<meta itemprop="description" content="HTTP 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP">
+<meta itemprop="datePublished" content="2020-09-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="972">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Wireshark 抓包分析 HTTP 和 HTTPS"/>
+<meta name="twitter:description" content="HTTP 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">Bjjdkp</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a><a href="/about">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">Bjjdkp</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Wireshark 抓包分析 HTTP 和 HTTPS</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-09-15 </span>
+        <div class="post-category">
+            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"> 计算机网络 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#http">HTTP</a></li>
+    <li><a href="#https">HTTPS</a></li>
+    <li><a href="#http抓包">HTTP抓包</a></li>
+    <li><a href="#https抓包">HTTPS抓包</a></li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h2 id="http">HTTP</h2>
+<blockquote>
+<p><strong>超文本传输协议</strong>（英语：<strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol，缩写：<strong>HTTP</strong>）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP是万维网的数据通信的基础。</p>
+</blockquote>
+<p>由于HTTP报文使用明文传输，所以存在很多安全隐患。从电脑、路由器、运营商到对方服务器，以及途中的各节点，这途中的任一环节都有可能被中间人嗅探，导致数据泄漏，甚至引起流量劫持、钓鱼攻击等安全问题。</p>
+<p>亲身经历，大学毕业后有一段时间没有玩贴吧，后来偶然登陆看到我的账号发了很多珠宝玉石相关的广告贴，而且关注列表也有几百个类似的营销号。猜测可能就是请求被截获，从而盗取了我的账号信息。由于那时贴吧还没有使用HTTPS，请求全是明文的，所以只需要获得有登陆状态的cookie就可以，都不用账号和密码。</p>
+<p>国内的HTTPS部署情况近几年越来越好了，不过还是有很多网站是HTTP，尤其是很多政府网站，待会用Wireshark抓包看一下。</p>
+<h2 id="https">HTTPS</h2>
+<blockquote>
+<p><strong>超文本传输安全协议</strong>（英语：<strong>H</strong>yper<strong>T</strong>ext <strong>T</strong>ransfer <strong>P</strong>rotocol <strong>S</strong>ecure，缩写：<strong>HTTPS</strong>；常称为HTTP over TLS、HTTP over SSL或HTTP Secure）是一种通过计算机网络进行安全通信的传输协议。HTTPS经由HTTP进行通信，但利用SSL/TLS来加密数据包。HTTPS开发的主要目的，是提供对网站服务器的身份认证，保护交换资料的隐私与完整性。这个协议由网景公司（Netscape）在1994年首次提出，随后扩展到互联网上。</p>
+</blockquote>
+<p>在访问一个HTTPS网站时，TCP三次握手之后，并不会立即传输数据，而是SSL/TLS握手，在这之后，客户端和服务器之间发送的所有报文均会被加密和鉴别，从而加强安全性。</p>
+<h2 id="http抓包">HTTP抓包</h2>
+<p>以<a href="http://xkctk.jtys.tj.gov.cn/">天津市小客车调控管理信息系统</a>为例，网站使用HTTP，使用Wireshark抓取登陆过程中的报文。</p>
+<p><a data-fancybox="gallery" href="/images/202009/wireshark-http-https/wireshark-http.png"><img src="/images/202009/wireshark-http-https/wireshark-http.png"></a></p>
+<p>定位到登陆认证的这条POST请求，可以看到用户名和密码都是明文传输。假如有中间人嗅探的话，用户名密码就泄露了。</p>
+<h2 id="https抓包">HTTPS抓包</h2>
+<p>以<a href="https://www.douban.com/">豆瓣</a>为例，网站使用HTTPS，使用Wireshark抓取登陆过程中的报文。</p>
+<p><a data-fancybox="gallery" href="/images/202009/wireshark-http-https/wireshark-https.png"><img src="/images/202009/wireshark-http-https/wireshark-https.png"></a></p>
+<p>原来的HTTP协议都变成了<code>http-over-tls</code>，info栏也看不到请求方法和请求地址了，全部变成<code>Application Data</code>，数据也变成了加密数据。</p>
+<h2 id="总结">总结</h2>
+<ul>
+<li>自己在部署网站时请一定要使用HTTPS；</li>
+<li>不要所有网站使用同一个密码，网站提供二级验证的话，请尽量开启。</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">bjjdkp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2020-09-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/hugo-githubpages/">
+            <span class="next-text nav-default">Hugo &amp; GitHub Pages 搭建博客</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:bjjdkp@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://twitter.com/bjjdkp" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://www.facebook.com/bjjdkp" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="https://github.com/bjjdkp" class="iconfont icon-github" title="github"></a>
+      <a href="https://weibo.com/bjjdkp" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="https://www.zhihu.com/people/bjjdkp" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="https://www.douban.com/people/bjjdkp/" class="iconfont icon-douban" title="douban"></a>
+  <a href="https://bjjdkp.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+      CDN Provided by
+      <a href="https://console.upyun.com/register/?invite=By0jUV7F4" target="_blank">
+        <img src="/youpai_logo5.png" alt="又拍云" width="50">
+        </a>
+  </span>
+
+  <span class="copyright-year">
+    &copy; 
+    2018 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">bjjdkp</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.d7b7ada643c9c1a983026e177f141f7363b4640d619caf01d8831a6718cd44ea.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-154563003-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

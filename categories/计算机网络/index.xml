@@ -6,10 +6,19 @@
     <description>Recent content in 计算机网络 on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 24 Jun 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://bjjdkp.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Wireshark 抓包分析 HTTP 和 HTTPS</title>
+      <link>https://bjjdkp.github.io/post/wireshark-http-https/</link>
+      <pubDate>Tue, 15 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://bjjdkp.github.io/post/wireshark-http-https/</guid>
+      <description>HTTP 超文本传输协议（英语：HyperText Transfer Protocol，缩写：HTTP）是一种用于分布式、协作式和超媒体信息系统的应用层协议。HTTP</description>
+    </item>
     
     <item>
       <title>Web页面请求的历程</title>
