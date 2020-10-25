@@ -49,7 +49,7 @@
 <meta itemprop="description" content="acme.sh 实现了 acme 协议, 可以从 Let’s Encrypt 生成免费的证书。Let’s Encrypt自18年起宣布支持泛域名证书。 使用acme.sh生成泛域名证书，配">
 <meta itemprop="datePublished" content="2020-03-10T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-03-10T00:00:00+00:00" />
-<meta itemprop="wordCount" content="385">
+<meta itemprop="wordCount" content="519">
 
 
 
@@ -138,6 +138,7 @@
     <li><a href="#安装acmesh">安装acme.sh</a></li>
     <li><a href="#调用域名提供商的api用以验证域名">调用域名提供商的api，用以验证域名</a></li>
     <li><a href="#生成泛域名证书">生成泛域名证书</a></li>
+    <li><a href="#安装证书">安装证书</a></li>
   </ul>
 </nav>
   </div>
@@ -199,7 +200,25 @@
 <span class="o">[</span>2020年 03月 10日 星期二 20:43:46 CST<span class="o">]</span> And the full chain certs is there:  /root/.acme.sh/example.com/fullchain.cer
 </code></pre></td></tr></table>
 </div>
+</div><h2 id="安装证书">安装证书</h2>
+<p>官方不建议直接使用 <code>.acme</code>目录下的文件，这里边的文件仅供项目内部使用，且在后续版本升级后，目录结构可能会发生变化。</p>
+<p>所以需使用<code>--install-cert</code> 命令，将证书copy指定的使用位置，以 Nginx 为例：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">acme.sh --install-cert -d example.com <span class="se">\
+</span><span class="se"></span>--key-file       /path/to/keyfile/in/nginx/key.pem  <span class="se">\
+</span><span class="se"></span>--fullchain-file /path/to/fullchain/nginx/cert.pem <span class="se">\
+</span><span class="se"></span>--reloadcmd     <span class="s2">&#34;service nginx force-reload&#34;</span>
+</code></pre></td></tr></table>
 </div>
+</div><p>详细用法参考<a href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E#3-copy%E5%AE%89%E8%A3%85-%E8%AF%81%E4%B9%A6">官方文档</a>。</p>
+
     </div>
 
     <div class="post-copyright">
