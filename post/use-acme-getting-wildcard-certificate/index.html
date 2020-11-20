@@ -173,7 +173,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">acme.sh --issue --dns dns_namesilo --dnssleep <span class="m">900</span> -d example.com -d *.example.com
+<pre class="chroma"><code class="language-shell" data-lang="shell">acme.sh --issue --dns dns_namesilo --dnssleep <span class="m">1800</span> -d example.com -d *.example.com
 </code></pre></td></tr></table>
 </div>
 </div><p>在zsh等shell下，命令行不识别 * 等特殊字符，会报错<code>zsh: no matches found: *</code>，加引号即可解决：</p>
@@ -182,7 +182,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell">acme.sh --issue --dns dns_namesilo --dnssleep <span class="m">900</span> -d example.com -d <span class="s1">&#39;*.example.com&#39;</span>
+<pre class="chroma"><code class="language-shell" data-lang="shell">acme.sh --issue --dns dns_namesilo --dnssleep <span class="m">1800</span> -d example.com -d <span class="s1">&#39;*.example.com&#39;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>完毕会将证书路径输出到屏幕上：</p>
