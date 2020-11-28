@@ -412,7 +412,7 @@ sh d2j-dex2jar.sh classes3.dex
 <li>Authorization = localObject2转Base64编码</li>
 </ul>
 <h2 id="获取appsecret-和appid-两个参数">获取<code>AppSecret </code>和<code>AppId </code>两个参数</h2>
-<p>分析了 Authorization 的生成逻辑后，只有<code>AppSecret </code>和<code>AppId </code>两个参数是未知的，通过<a href="https://huangzy.cn/article/2018/11/android-studio-debug">动态调试 APK</a> 获取两个参数的值。</p>
+<p>分析了 Authorization 的生成逻辑后，只有<code>AppSecret </code>和<code>AppId </code>两个参数是未知的，通过<a href="/post/android-studio-debug">动态调试 APK</a> 获取两个参数的值。</p>
 <h2 id="根据-authorization--的生成逻辑python-版本的代码如下">根据 <code>Authorization </code> 的生成逻辑，Python 版本的代码如下：</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -468,7 +468,7 @@ sh d2j-dex2jar.sh classes3.dex
 	<span class="k">return</span> <span class="n">params_dict</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>其中，AppSecret 及 AppId 两个参数，需要通过<a href="https://huangzy.cn/article/2018/11/android-studio-debug">动态调试 APK</a>获取。</p>
+</div><p>其中，AppSecret 及 AppId 两个参数，需要通过<a href="/post/android-studio-debug">动态调试 APK</a>获取。</p>
 
     </div>
 
