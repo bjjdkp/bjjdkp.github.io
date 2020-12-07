@@ -49,7 +49,7 @@
 <meta itemprop="description" content="一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其">
 <meta itemprop="datePublished" content="2020-04-07T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2020-04-07T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1719">
+<meta itemprop="wordCount" content="1724">
 
 
 
@@ -294,10 +294,12 @@
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-sh" data-lang="sh"><span class="nb">cd</span> /home/huangzy/backup/bitwarden-backup
-sqlite3 /home/huangzy/bitwarden/bw-data/db.sqlite3 <span class="s2">&#34;.backup &#39;/home/huangzy/backup/bitwarden-backup/bitwarden_backup.sqlite3&#39;&#34;</span>
+<pre class="chroma"><code class="language-sh" data-lang="sh">sqlite3 /home/huangzy/bitwarden/bw-data/db.sqlite3 <span class="s2">&#34;.backup &#39;/home/huangzy/backup/bitwarden_backup.sqlite3&#39;&#34;</span>
+zip -jP<span class="s2">&#34;123123&#34;</span> /home/huangzy/backup/bitwarden-backup/bitwarden_backup.zip /home/huangzy/backup/bitwarden_backup.sqlite3
+<span class="nb">cd</span> /home/huangzy/backup/bitwarden-backup
 git add -A
 git commit -m <span class="s2">&#34;bitwarden daily backup&#34;</span>
 git push -u origin master
