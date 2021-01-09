@@ -57,15 +57,6 @@
     </item>
     
     <item>
-      <title>创建一个英文id</title>
-      <link>https://bjjdkp.github.io/post/create-an-english-id/</link>
-      <pubDate>Fri, 05 Jun 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://bjjdkp.github.io/post/create-an-english-id/</guid>
-      <description>因为喜欢安东尼，所以我一直使用的中文id是小铁瓜，不过仍旧一直想创建一个尽可能独一无二的英文id来使用。 为什么要用英文id，主要还是因为中文</description>
-    </item>
-    
-    <item>
       <title>服务器自建Bitwarden密码管理器</title>
       <link>https://bjjdkp.github.io/post/self-host-bitwarden/</link>
       <pubDate>Tue, 07 Apr 2020 00:00:00 +0000</pubDate>
@@ -180,15 +171,6 @@
       
       <guid>https://bjjdkp.github.io/post/fabric-deploy/</guid>
       <description>本文基于 Python3 和 fabric2，记录关于 fabric 自动化部署项目的基本语法。 fabric 不同版本间的区别 在 pypi 中搜索 fabric 能搜到三个相关的库： Fabric 和 fabric2： 同为官</description>
-    </item>
-    
-    <item>
-      <title>Django 中 makemigrations 和 migrate 区别</title>
-      <link>https://bjjdkp.github.io/post/difference-between-makemigrations-and-migrate/</link>
-      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://bjjdkp.github.io/post/difference-between-makemigrations-and-migrate/</guid>
-      <description>偶然间看到了关于 Django 中 makemigrations 和 migrate 区别的一段解释，豁然开朗。 According the Polls tutorial： 1.python manage.py makemigrations &amp;lt;app&amp;gt;: Create the migrations (generate the SQL commands). 2.python manage.py migrate: Run the migrations (execute the SQL commands).</description>
     </item>
     
     <item>

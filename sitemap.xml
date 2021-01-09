@@ -80,14 +80,7 @@
   
   <url>
     <loc>https://bjjdkp.github.io/categories/%E5%85%B6%E4%BB%96/</loc>
-    <lastmod>2020-06-05T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://bjjdkp.github.io/post/create-an-english-id/</loc>
-    <lastmod>2020-06-05T00:00:00+00:00</lastmod>
+    <lastmod>2020-04-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -200,13 +193,6 @@
   <url>
     <loc>https://bjjdkp.github.io/post/fabric-deploy/</loc>
     <lastmod>2019-04-10T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://bjjdkp.github.io/post/difference-between-makemigrations-and-migrate/</loc>
-    <lastmod>2019-03-21T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
