@@ -6,10 +6,19 @@
     <description>Recent content on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 15 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 Oct 2021 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://bjjdkp.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2021 国庆自驾游记录</title>
+      <link>https://bjjdkp.github.io/post/2021-national-day-trip/</link>
+      <pubDate>Wed, 13 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://bjjdkp.github.io/post/2021-national-day-trip/</guid>
+      <description>时间：2021.10.01 ~ 2021.10.11 目的：5号在西安参加所欲的婚礼，10号在张家港参加青笋的婚礼 出行工具：也孙的吉利帝豪EV 电动车相对汽油车来讲，</description>
+    </item>
     
     <item>
       <title>Wireshark 抓包分析 HTTP 和 HTTPS</title>
