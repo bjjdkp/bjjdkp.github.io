@@ -75,6 +75,15 @@
     </item>
     
     <item>
+      <title>自建IP代理池流程图</title>
+      <link>https://bjjdkp.github.io/post/self-build-proxy-pool-flow-chart/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bjjdkp.github.io/post/self-build-proxy-pool-flow-chart/</guid>
+      <description>https://github.com/bjjdkp/Proxies-Pool/wiki/flow-chart</description>
+    </item>
+    
+    <item>
       <title>Scrapy 设置中 CONCURRENT_REQUESTS 及 DOWNLOAD_DELAY 等几个相关参数的作用</title>
       <link>https://bjjdkp.github.io/post/concurrent_requests-and-download_delay/</link>
       <pubDate>Mon, 19 Aug 2019 00:00:00 +0000</pubDate>

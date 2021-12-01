@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>bjjdkp的博客</title>
+  <title>自建IP代理池流程图 - bjjdkp的博客</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="bjjdkp" /><meta name="description" content="bjjdkp&#39;s blog." /><meta name="keywords" content="Hugo, theme, even" />
+<meta name="author" content="bjjdkp" /><meta name="description" content="https://github.com/bjjdkp/Proxies-Pool/wiki/flow-chart" /><meta name="keywords" content="Hugo, theme, even" />
 
 
 
@@ -26,9 +26,7 @@
 <meta name="generator" content="Hugo 0.74.3 with theme even" />
 
 
-<link rel="canonical" href="https://bjjdkp.github.io/" />
-  <link href="https://bjjdkp.github.io/index.xml" rel="alternate" type="application/rss+xml" title="bjjdkp的博客" />
-  <link href="https://bjjdkp.github.io/index.xml" rel="feed" type="application/rss+xml" title="bjjdkp的博客" />
+<link rel="canonical" href="https://bjjdkp.github.io/post/self-build-proxy-pool-flow-chart/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,16 +39,24 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="bjjdkp的博客" />
-<meta property="og:description" content="bjjdkp&#39;s blog." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://bjjdkp.github.io/" />
-<meta property="og:updated_time" content="2021-10-13T00:00:00+00:00" />
-<meta itemprop="name" content="bjjdkp的博客">
-<meta itemprop="description" content="bjjdkp&#39;s blog.">
+<meta property="og:title" content="自建IP代理池流程图" />
+<meta property="og:description" content="https://github.com/bjjdkp/Proxies-Pool/wiki/flow-chart" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bjjdkp.github.io/post/self-build-proxy-pool-flow-chart/" />
+<meta property="article:published_time" content="2019-09-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-13T00:00:00+00:00" />
+<meta itemprop="name" content="自建IP代理池流程图">
+<meta itemprop="description" content="https://github.com/bjjdkp/Proxies-Pool/wiki/flow-chart">
+<meta itemprop="datePublished" content="2019-09-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-09-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1">
+
+
+
+<meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="bjjdkp的博客"/>
-<meta name="twitter:description" content="bjjdkp&#39;s blog."/>
+<meta name="twitter:title" content="自建IP代理池流程图"/>
+<meta name="twitter:description" content="https://github.com/bjjdkp/Proxies-Pool/wiki/flow-chart"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -110,126 +116,69 @@
     <main id="main" class="main">
       <div class="content-wrapper">
         <div id="content" class="content">
-          <section id="posts" class="posts">
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/self-host-bitwarden/">服务器自建Bitwarden密码管理器</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-04-07 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%85%B6%E4%BB%96/"> 其他 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      一直以来，我的密码使用习惯都是用脑子记，所以只能一套简单密码走天下。从最初的qq账号，到如今将近两百个网站的密码，基本都是用的同一密码。究其
-    </div>
-    <div class="read-more">
-      <a href="/post/self-host-bitwarden/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">自建IP代理池流程图</h1>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/use-acme-getting-wildcard-certificate/">acme.sh申请泛域名（通配符）证书</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-03-10 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%85%B6%E4%BB%96/"> 其他 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      acme.sh 实现了 acme 协议, 可以从 Let’s Encrypt 生成免费的证书。Let’s Encrypt自18年起宣布支持泛域名证书。 使用acme.sh生成泛域名证书，配
-    </div>
-    <div class="read-more">
-      <a href="/post/use-acme-getting-wildcard-certificate/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
+      <div class="post-meta">
+        <span class="post-time"> 2019-09-13 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%88%AC%E8%99%AB/"> 爬虫 </a>
+            </div>
+        
+      </div>
+    </header>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/self-build-proxy-pool-flow-chart/">自建IP代理池流程图</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-09-13 </span>
-      <div class="post-category">
-          <a href="/categories/%E7%88%AC%E8%99%AB/"> 爬虫 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      https://github.com/bjjdkp/Proxies-Pool/wiki/flow-chart
-    </div>
-    <div class="read-more">
-      <a href="/post/self-build-proxy-pool-flow-chart/" class="read-more-link">Read more...</a>
-    </div>
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents"></nav>
   </div>
-</article>
+</div>
+    <div class="post-content">
+      <p><a href="https://github.com/bjjdkp/Proxies-Pool/wiki/flow-chart">https://github.com/bjjdkp/Proxies-Pool/wiki/flow-chart</a></p>
+<p><img src="/images/201909/self-build-proxy-pool-flow-chart/flow.png" alt="流程图"></p>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/concurrent_requests-and-download_delay/">Scrapy 设置中 CONCURRENT_REQUESTS 及 DOWNLOAD_DELAY 等几个相关参数的作用</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-08-19 </span>
-      <div class="post-category">
-          <a href="/categories/python/"> Python </a>
-          </div>
     </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Scrapy的默认设置中，有几个关于并发请求及下载延迟的参数，这几个参数的设置，既影响请求效率，同时关乎对方服务器的压力大小。 相关的几个参数
-    </div>
-    <div class="read-more">
-      <a href="/post/concurrent_requests-and-download_delay/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/get-hupu-app-sign-params/">反编译虎扑 App 破解请求参数 sign</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-07-19 </span>
-      <div class="post-category">
-          <a href="/categories/%E7%88%AC%E8%99%AB/"> 爬虫 </a>
-          </div>
-    </div>
-  </header>
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">Author</span>
+    <span class="item-content">bjjdkp</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">
+        2019-09-13
+        
+    </span>
+  </p>
   
-  <div class="post-content">
-    <div class="post-summary">
-      最近想爬虎扑的全量用户，初步打算从 App 端入手，不出意外，在请求中依旧碰到了加密参数。 请求参数 ios 端和 android 端的请求参数大同小异，这里以 android 端的请求参数
-    </div>
-    <div class="read-more">
-      <a href="/post/get-hupu-app-sign-params/" class="read-more-link">Read more...</a>
-    </div>
-  </div>
-</article>
-
-    </section>
   
-  <nav class="pagination">
-    <a class="prev" href="/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text">Prev</span>
-      </a>
-    <a class="next" href="/page/3/">
-        <span class="next-text">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-  </nav>
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/use-acme-getting-wildcard-certificate/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">acme.sh申请泛域名（通配符）证书</span>
+            <span class="prev-text nav-mobile">Prev</span>
+          </a>
+        <a class="next" href="/post/concurrent_requests-and-download_delay/">
+            <span class="next-text nav-default">Scrapy 设置中 CONCURRENT_REQUESTS 及 DOWNLOAD_DELAY 等几个相关参数的作用</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
         </div>
         
+
+  
+
+  
 
       </div>
     </main>

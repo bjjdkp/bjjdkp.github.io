@@ -6,10 +6,19 @@
     <description>Recent content in 爬虫 on bjjdkp的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 19 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Sep 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://bjjdkp.github.io/categories/%E7%88%AC%E8%99%AB/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>自建IP代理池流程图</title>
+      <link>https://bjjdkp.github.io/post/self-build-proxy-pool-flow-chart/</link>
+      <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bjjdkp.github.io/post/self-build-proxy-pool-flow-chart/</guid>
+      <description>https://github.com/bjjdkp/Proxies-Pool/wiki/flow-chart</description>
+    </item>
     
     <item>
       <title>反编译虎扑 App 破解请求参数 sign</title>
